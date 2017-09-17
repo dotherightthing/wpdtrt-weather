@@ -59,16 +59,16 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
     // only overwrite predeclared variables
     extract( $atts, EXTR_IF_EXISTS );
 
-    //$forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast' );
-    //if ( ! isset($forecast) || empty($forecast) ) {
+    $forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast' );
+
+    if ( ! isset($forecast) || empty($forecast) ) {
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_api_key = $wpdtrt_weather_options['wpdtrt_weather_api_key'];
       $forecast = wpdtrt_weather_get_data( $wpdtrt_weather_api_key );
       update_post_meta( $post->ID, 'wpdtrt_weather_forecast', $forecast );
 
-    //}
-
+    }
 
     $min = 0;
     $max = 0;
