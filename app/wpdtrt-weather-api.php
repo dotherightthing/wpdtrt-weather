@@ -14,88 +14,50 @@
 if ( !function_exists( 'wpdtrt_weather_get_data' ) ) {
 
   /**
-   * Request the data from the API
+   * Request weather data from the API
    *
-   * @param       string $wpdtrt_weather_datatype
-   *    The type of data to return.
-   * @return      object $wpdtrt_weather_data
-   *    The body of the JSON response
+   * @param       string $wpdtrt_weather_api_key The user's API key
+   * @return object $forecast ($min, $max, $icon, $alt, $unit)
    *
-   * @since       0.1.0
-   * @uses        ../../../../wp-includes/http.php
-   * @see         https://developer.wordpress.org/reference/functions/wp_remote_get/
-   */
-  function wpdtrt_weather_get_data( $wpdtrt_weather_datatype ) {
+   * @see https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
+   * @uses https://darksky.net/dev/docs/time-machine
+   * @uses https://github.com/joshuadavidnelson/wp-darksky
+   * @uses https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
+   * @uses https://github.com/erikflowers/weather-icons
+   *
+   * @todo toggle cache_enabled off if debugging enabled
+   * @since 0.1.0
+ */
+  function wpdtrt_weather_get_data( $wpdtrt_weather_api_key ) {
 
-    $endpoint = 'http://jsonplaceholder.typicode.com/' . $wpdtrt_weather_datatype;
+    global $post;
+
+    $featured_image_id = get_post_thumbnail_id( $post->ID );
+
+    $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
+    $attachment_metadata_gps = wpdtrt_exif_get_attachment_metadata_gps( $attachment_metadata, 'number' );
+
+    // TODO: add units as a shortcode option
+    // TODO: add Centigrade as a shortcode option or get more intelligently from results
 
     $args = array(
-      'timeout' => 30 // seconds to wait for the request to complete
+      'api_key'       => $wpdtrt_weather_api_key,
+      'latitude'      => $attachment_metadata_gps['latitude'],
+      'longitude'     => $attachment_metadata_gps['longitude'],
+      'time'          => get_the_date('U'),
+      'cache_enabled' => false,
+      'query'         => array(
+        'units'       => 'si', // metric - French Système International d'Unités
+        'exclude'     => 'flags'
+      )
     );
 
-    $response = wp_remote_get(
-      $endpoint,
-      $args
-    );
+    $forecast = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
 
-    /**
-     * Return the body, not the header
-     * Note: There is an optional boolean argument, which returns an associative array if TRUE
-     */
-    $wpdtrt_weather_data = json_decode( $response['body'] );
-
-    return $wpdtrt_weather_data;
+    return $forecast;
   }
 
 }
 
-if ( !function_exists( 'wpdtrt_weather_data_refresh' ) ) {
-
-  /**
-   * Refresh the data from the API
-   *    The 'action' key's value, 'wpdtrt_weather_data_refresh',
-   *    matches the latter half of the action 'wp_ajax_wpdtrt_weather_data_refresh' in our AJAX handler.
-   *    This is because it is used to call the server side PHP function through admin-ajax.php.
-   *    If an action is not specified, admin-ajax.php will exit, and return 0 in the process.
-   *
-   * @since       0.1.0
-   * @see         https://codex.wordpress.org/AJAX_in_Plugins
-   */
-  function wpdtrt_weather_data_refresh() {
-
-    $wpdtrt_weather_options = get_option('wpdtrt_weather');
-    $last_updated = $wpdtrt_weather_options['last_updated'];
-
-    $current_time = time();
-    $update_difference = $current_time - $last_updated;
-    $one_hour = (1 * 60 * 60);
-
-    if ( $update_difference > $one_hour ) {
-
-      $wpdtrt_weather_datatype = $wpdtrt_weather_options['wpdtrt_weather_datatype'];
-
-      $wpdtrt_weather_options['wpdtrt_weather_data'] = wpdtrt_weather_get_data( $wpdtrt_weather_datatype );
-
-      // inspecting the database will allow us to check
-      // whether the profile is being updated
-      $wpdtrt_weather_options['last_updated'] = time();
-
-      update_option('wpdtrt_weather', $wpdtrt_weather_options);
-    }
-
-    /**
-     * Let the Ajax know when the entire function has completed
-     *
-     * wp_die() vs die() vs exit()
-     * Most of the time you should be using wp_die() in your Ajax callback function.
-     * This provides better integration with WordPress and makes it easier to test your code.
-     */
-    wp_die();
-
-  }
-
-  add_action('wp_ajax_wpdtrt_weather_data_refresh', 'wpdtrt_weather_data_refresh');
-
-}
 
 ?>

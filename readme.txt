@@ -9,11 +9,11 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Displays historical weather information for a GPS location.
+Displays historical weather information for the GPS location determined by the Featured Image.
 
 == Description ==
 
-Displays historical weather information for a GPS location.
+Displays historical weather information for a GPS location determined by the Featured Image.
 
 == Installation ==
 
@@ -30,28 +30,21 @@ One or more widgets can be displayed within one or more sidebars:
 1. Locate the widget: Appearance > Widgets > *DTRT Weather Widget*
 2. Drag and drop the widget into one of your sidebars
 3. Add a *Title*
-4. Specify *Number of blocks to display*
-5. Toggle *Link to enlargement?*
+4. Specify *Element*
 
 = How do I use the shortcode? =
 
 ```
 <!-- within the editor -->
-[wpdtrt_weather option="value"]
+[wpdtrt_weather element="dd"]
 
 // in a PHP template, as a template tag
-<?php echo do_shortcode( '[wpdtrt_weather option="value"]' ); ?>
+<?php echo do_shortcode( '[wpdtrt_weather element="dd"]' ); ?>
 ```
 
 = Shortcode options =
 
-1. `Number of blocks to display="4"` (default) - number of blocks to display
-2. `enlargement="yes"` (default) - optionally link each block to a larger version
-
-== Screenshots ==
-
-1. The caption for ./assets/screenshot-1.(png|jpg|jpeg|gif)
-2. The caption for ./assets/screenshot-2.(png|jpg|jpeg|gif)
+1. `element="dd"` (default) - Type of element to wrap results in
 
 == Changelog ==
 

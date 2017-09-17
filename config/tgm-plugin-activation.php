@@ -60,8 +60,8 @@ function wpdtrt_weather_register_required_plugins() {
 	$plugins = array(
 
 	    array(
-	      'name'          => 'WPDTRT Attachment GPS',
-	      'slug'          => 'wpdtrt-attachment-gps',
+	      'name'          => 'DTRT EXIF',
+	      'slug'          => 'wpdtrt-exif',
 	      'required'      => true
 	    ),
 

@@ -51,8 +51,7 @@ if ( !class_exists( 'WPDTRT_Weather_Widget' ) ) {
        * Display the title of this instance, which the user can optionally customise
        */
       $title = apply_filters( 'widget_title', $instance['title'] );
-      $number = $instance['number'];
-      $enlargement = $instance['enlargement'];
+      $element = $instance['element'];
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_data = $wpdtrt_weather_options['wpdtrt_weather_data'];
@@ -84,8 +83,7 @@ if ( !class_exists( 'WPDTRT_Weather_Widget' ) ) {
        * @link http://php.net/manual/en/function.strip-tags.php
        */
       $instance['title'] = strip_tags( $new_instance['title'] );
-      $instance['number'] = strip_tags( $new_instance['number'] );
-      $instance['enlargement'] = strip_tags( $new_instance['enlargement'] );
+      $instance['element'] = strip_tags( $new_instance['element'] );
 
       return $instance;
     }
@@ -101,8 +99,7 @@ if ( !class_exists( 'WPDTRT_Weather_Widget' ) ) {
         * @link https://developer.wordpress.org/reference/functions/esc_attr/
         */
       $title = esc_attr( $instance['title'] );
-      $number = esc_attr( $instance['number'] );
-      $enlargement = esc_attr( $instance['enlargement'] );
+      $element = esc_attr( $instance['element'] );
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_data = $wpdtrt_weather_options['wpdtrt_weather_data'];

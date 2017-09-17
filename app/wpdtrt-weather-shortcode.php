@@ -41,9 +41,8 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
     $title = null;
     $after_title = null;
     $after_widget = null;
-    $number = null;
-    $enlargement = null;
-    $shortcode = 'wpdtrt_weather_shortcode';
+    $element = null;
+    $shortcode = 'wpdtrt_weather';
 
     /**
      * Combine user attributes with known attributes and fill in defaults when needed.
@@ -51,8 +50,7 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
      */
     $atts = shortcode_atts(
       array(
-        'number' => '4',
-        'enlargement' => 'yes'
+        'element' => 'dd'
       ),
       $atts,
       $shortcode
@@ -61,16 +59,35 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
     // only overwrite predeclared variables
     extract( $atts, EXTR_IF_EXISTS );
 
-    if ( $enlargement === 'yes') {
-      $enlargement = '1';
-    }
+    //$forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast' );
+    //if ( ! isset($forecast) || empty($forecast) ) {
 
-    if ( $enlargement === 'no') {
-      $enlargement = '0';
-    }
+      $wpdtrt_weather_options = get_option('wpdtrt_weather');
+      $wpdtrt_weather_api_key = $wpdtrt_weather_options['wpdtrt_weather_api_key'];
+      $forecast = wpdtrt_weather_get_data( $wpdtrt_weather_api_key );
+      update_post_meta( $post->ID, 'wpdtrt_weather_forecast', $forecast );
 
-    $wpdtrt_weather_options = get_option('wpdtrt_weather');
-    $wpdtrt_weather_data = $wpdtrt_weather_options['wpdtrt_weather_data'];
+    //}
+
+
+    $min = 0;
+    $max = 0;
+    $icon = '';
+    $summary = '';
+    $unit = '';
+
+    //wpdtrt_log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
+
+    // Get the day's historical forecast data
+    $day = isset( $forecast->daily['data'] ) ? $forecast->daily['data'][0] : false;
+
+    if ( $day ) {
+      $min = isset( $day['temperatureMin'] ) ? intval( $day['temperatureMin'] ) : null;
+      $max = isset( $day['temperatureMax'] ) ? intval( $day['temperatureMax'] ) : null;
+      $icon = isset( $day['icon'] ) ? $forecast->get_icon( esc_attr( $day['icon'] ) ) : null; // get_entry_stats_weather($post_id)[0];
+      $summary =  isset( $day['summary'] ) ? esc_attr( $day['summary'] ) : null; // get_entry_stats_weather($post_id)[1];
+      $unit = '&deg;<abbr title="Centigrade">C</abbr>';
+    }
 
     /**
      * ob_start — Turn on output buffering
