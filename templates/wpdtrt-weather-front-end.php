@@ -20,7 +20,7 @@
 
 <?php if ( isset( $min, $max ) ): ?>
 
-<<?php echo $element; ?> title="<?php echo $summary; ?>">'
+<<?php echo $element; ?> title="<?php echo $summary; ?>">
   <?php echo $icon; ?>
   <span class="says"><?php echo $summary; ?></span>
   <?php if ( $max > $min ): ?>

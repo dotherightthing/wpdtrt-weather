@@ -52,6 +52,7 @@ if ( !function_exists( 'wpdtrt_weather_get_data' ) ) {
       )
     );
 
+    //wpdtrt_log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
     $forecast = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
 
     return $forecast;

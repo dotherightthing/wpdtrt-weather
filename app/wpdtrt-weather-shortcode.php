@@ -59,24 +59,19 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
     // only overwrite predeclared variables
     extract( $atts, EXTR_IF_EXISTS );
 
-    $forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast' );
+    // true = return a single value - the object ( $forecast )
+    // false = return an array, containing the object ( $forecast[0] )
+    $forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast', true );
 
     if ( ! isset($forecast) || empty($forecast) ) {
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_api_key = $wpdtrt_weather_options['wpdtrt_weather_api_key'];
       $forecast = wpdtrt_weather_get_data( $wpdtrt_weather_api_key );
+
+      // store the forecast in a custom field
       update_post_meta( $post->ID, 'wpdtrt_weather_forecast', $forecast );
-
     }
-
-    $min = 0;
-    $max = 0;
-    $icon = '';
-    $summary = '';
-    $unit = '';
-
-    //wpdtrt_log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
 
     // Get the day's historical forecast data
     $day = isset( $forecast->daily['data'] ) ? $forecast->daily['data'][0] : false;
