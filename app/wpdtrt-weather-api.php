@@ -30,6 +30,11 @@ if ( !function_exists( 'wpdtrt_weather_get_data' ) ) {
  */
   function wpdtrt_weather_get_data( $wpdtrt_weather_api_key ) {
 
+    if ( ! function_exists('wpdtrt_exif_get_attachment_metadata_gps') ) {
+      wpdtrt_log( 'wpdtrt_weather missing dependency, please install required plugins' );
+      return;
+    }
+
     global $post;
 
     $featured_image_id = get_post_thumbnail_id( $post->ID );
