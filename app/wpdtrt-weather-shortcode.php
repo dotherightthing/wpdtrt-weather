@@ -63,7 +63,7 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
     // false = return an array, containing the object ( $forecast[0] )
     $forecast = get_post_meta( $post->ID, 'wpdtrt_weather_forecast', true );
 
-    if ( ! isset($forecast) || empty($forecast) ) {
+    //if ( ! isset($forecast) || empty($forecast) ) {
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_api_key = $wpdtrt_weather_options['wpdtrt_weather_api_key'];
@@ -71,7 +71,7 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
 
       // store the forecast in a custom field
       update_post_meta( $post->ID, 'wpdtrt_weather_forecast', $forecast );
-    }
+    //}
 
     // Get the day's historical forecast data
     $day = isset( $forecast->daily['data'] ) ? $forecast->daily['data'][0] : false;

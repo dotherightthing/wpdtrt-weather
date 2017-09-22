@@ -45,7 +45,7 @@ if ( !function_exists( 'wpdtrt_weather_js' ) ) {
 
     /*
     wp_register_script( 'a_dependency',
-      WPDTRT_WEATHER_URL . 'vendor/bower_components/a_dependency/a_dependency.js',
+      WPDTRT_WEATHER_URL . 'vendor/a_dependency/a_dependency.js',
       array(
         'jquery'
       ),

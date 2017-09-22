@@ -46,7 +46,7 @@ if ( !function_exists( 'wpdtrt_weather_css_frontend' ) ) {
     $media = 'all';
 
     wp_register_style( 'weather_icons',
-      WPDTRT_WEATHER_URL . 'vendor/bower_components/weather-icons/css/weather-icons.min.css',
+      WPDTRT_WEATHER_URL . 'vendor/weather-icons/css/weather-icons.min.css',
       array(),
       '2.0.10',
       $media

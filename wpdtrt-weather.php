@@ -81,8 +81,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
  * Include plugin logic
  */
 
-  require_once(WPDTRT_WEATHER_PATH . 'vendor/bower_components/wp-darksky/wp-darksky.php');
-  require_once(WPDTRT_WEATHER_PATH . 'vendor/bower_components/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+  require_once(WPDTRT_WEATHER_PATH . 'vendor/wp-darksky/wp-darksky.php');
+  require_once(WPDTRT_WEATHER_PATH . 'vendor/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 
   require_once(WPDTRT_WEATHER_PATH . 'app/wpdtrt-weather-api.php');
   require_once(WPDTRT_WEATHER_PATH . 'app/wpdtrt-weather-css.php');
