@@ -67,7 +67,7 @@ if ( !function_exists( 'wpdtrt_weather_shortcode' ) ) {
 
       $wpdtrt_weather_options = get_option('wpdtrt_weather');
       $wpdtrt_weather_api_key = $wpdtrt_weather_options['wpdtrt_weather_api_key'];
-      $forecast = wpdtrt_weather_get_data( $wpdtrt_weather_api_key );
+      $forecast = $this->get_data( $wpdtrt_weather_api_key );
 
       // store the forecast in a custom field
       update_post_meta( $post->ID, 'wpdtrt_weather_forecast', $forecast );
