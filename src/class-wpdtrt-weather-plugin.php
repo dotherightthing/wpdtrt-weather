@@ -85,11 +85,12 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
 		$plugin_options = $this->get_plugin_options();
 		$darksky_api_key = $plugin_options['darksky_api_key']['value']; // value must be set in options array
+		$featured_image_latlng = $this->get_featured_image_latlng();
 
 	    $args = array(
 	      'api_key'       => $darksky_api_key,
-	      'latitude'      => $this->get_featured_image_latlng['latitude'],
-	      'longitude'     => $this->get_featured_image_latlng['longitude'],
+	      'latitude'      => $featured_image_latlng['latitude'],
+	      'longitude'     => $featured_image_latlng['longitude'],
 	      'time'          => get_the_date('U'), // the date the post was written
 	      'cache_enabled' => ( WP_DEBUG === true ) ? false : true,
 	      'query'         => array(
@@ -119,7 +120,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	* @version     	1.0.0
 	*/
     public function get_api_day() {
-		$plugin_data = $plugin->get_plugin_data();
+		$plugin_data = $this->get_plugin_data();
 		$day = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
     	return $day;
     }

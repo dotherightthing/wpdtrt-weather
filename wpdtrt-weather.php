@@ -96,6 +96,10 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
   // redundant, but includes the composer-generated autoload file if not already included
   require_once(WPDTRT_WEATHER_PATH . 'vendor/dotherightthing/wpdtrt-plugin/index.php');
 
+  // classes without composer.json files are loaded via Bower
+  require_once(WPDTRT_WEATHER_PATH . 'vendor/wp-darksky/wp-darksky.php');
+  require_once(WPDTRT_WEATHER_PATH . 'vendor/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+
   // sub classes
   require_once(WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-plugin.php');
   require_once(WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-widgets.php');
@@ -168,6 +172,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
           'loading' => __('Loading latest data...', 'wpdtrt-weather'),
           'success' => __('settings successfully updated', 'wpdtrt-weather'),
           'insufficient_permissions' => __('Sorry, you do not have sufficient permissions to access this page.', 'wpdtrt-weather'),
+          'noscript_warning' => __('JavaScript is disabled. Please enable JavaScript to load demo data.', 'wpdtrt-weather'),
           'options_form_title' => __('General Settings', 'wpdtrt-weather'),
           'options_form_description' => __('Please enter your preferences', 'wpdtrt-weather'),
           'options_form_submit' => __('Save Changes', 'wpdtrt-weather')

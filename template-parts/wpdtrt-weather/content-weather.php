@@ -32,6 +32,9 @@ $options = get_query_var( 'options' );
 // @link http://kb.network.dan/php/wordpress/extract/
 extract( $options, EXTR_IF_EXISTS );
 
+// load the data
+$plugin->get_api_data();
+
 // Get the day's historical forecast data
 $min =      $plugin->get_api_day_min();
 $max =      $plugin->get_api_day_max();
