@@ -12,4 +12,6 @@
 
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_variables.scss";
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_extends.scss";
-@import "../vendor/weather-icons/css/weather-icons.min.css";
+
+$wi-path: "../vendor/weather-icons/font";
+@import "vendor/weather-icons/sass/weather-icons.scss";
