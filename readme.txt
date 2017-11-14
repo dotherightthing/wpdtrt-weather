@@ -2,9 +2,10 @@
 === DTRT Weather ===
 Contributors: dotherightthingnz
 Donate link: http://dotherightthing.co.nz
-Tags: weather
-Requires at least: 4.8.1
-Tested up to: 4.8.1
+Tags: weather, forecast, GPS
+Requires at least: 4.8.3
+Tested up to: 4.8.3
+Requires PHP: 5.6.30
 Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,9 +18,9 @@ Displays historical weather information for a GPS location determined by the Fea
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/wpdtrt-weather` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/wpdtrt-weather` directory.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Settings->Plugin Name screen to configure the plugin
+3. Use the Settings->DTRT Weather screen to configure the plugin
 
 == Frequently Asked Questions ==
 
@@ -36,10 +37,10 @@ One or more widgets can be displayed within one or more sidebars:
 
 ```
 <!-- within the editor -->
-[wpdtrt_weather element="dd"]
+[wpdtrt_weather_shortcode_1 element="dd"]
 
 // in a PHP template, as a template tag
-<?php echo do_shortcode( '[wpdtrt_weather element="dd"]' ); ?>
+<?php echo do_shortcode( '[wpdtrt_weather_shortcode_1 element="dd"]' ); ?>
 ```
 
 = Shortcode options =
