@@ -32,10 +32,12 @@ $options = get_query_var( 'options' );
 // @link http://kb.network.dan/php/wordpress/extract/
 extract( $options, EXTR_IF_EXISTS );
 
-$plugin_data = $plugin->get_plugin_data();
-$plugin_options = $plugin->get_plugin_options();
-
-$google_maps_api_key = $plugin_options['google_maps_api_key'];
+// Get the day's historical forecast data
+$min =      $plugin->get_api_day_min();
+$max =      $plugin->get_api_day_max();
+$icon =     $plugin->get_api_day_icon();
+$summary =  $plugin->get_api_day_summary();
+$unit =     $plugin->get_api_day_unit();
 
 // WordPress widget options (widget, not shortcode)
 echo $before_widget;
@@ -43,22 +45,12 @@ echo $before_title . $title . $after_title;
 ?>
 
 <?php
-  if ( ! empty($plugin_data) ):
-
-    foreach( $plugin_data as $key => $val ):
-
-      $data_object =   $plugin_data[$key];
-      $min =           $plugin->get_min( $data_object );
-      $max =           $plugin->get_max( $data_object );
-      $summary =       $plugin->get_summary( $data_object );
-      $icon =          $plugin->get_icon( $data_object );
-      $unit =          $plugin->get_unit( $data_object );
-
-      if ( isset( $min, $max ) ): ?>
+  if ( isset( $min, $max ) ):
+?>
 
 <<?php echo $element; ?> title="<?php echo $summary; ?>">
   <?php echo $icon; ?>
-  <span class="says"><?php echo $summary; ?></span>
+  <span class=wpdtrt-plugin-screen-reader-text"><?php echo $summary; ?></span>
   <?php if ( $max > $min ): ?>
     <?php echo $min; ?> - <?php echo $max; ?>
   <?php else: ?>
@@ -68,8 +60,6 @@ echo $before_title . $title . $after_title;
 </<?php echo $element; ?>>
 
 <?php
-      endif;
-    endforeach;
   endif;
 
   // output widget customisations (not output with shortcode)

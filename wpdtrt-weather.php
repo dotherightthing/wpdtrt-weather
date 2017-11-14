@@ -180,7 +180,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
             'name'          => 'DTRT EXIF',
             'slug'          => 'wpdtrt-exif',
             'source'        => 'https://github.com/dotherightthing/wpdtrt-exif/archive/master.zip',
-            'required'      => true
+            'required'      => true,
+            'is_callable'   => 'wpdtrt_exif_get_attachment_metadata_gps'
           )
         )
       )
@@ -190,57 +191,38 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
   add_action( 'init', 'wpdtrt_weather_init', 0 );
 
   /**
-   * Widget initialisaton
+   * Register a WordPress widget, passing in an instance of our custom widget class
+   * The plugin does not require registration, but widgets and shortcodes do.
+   * Note: widget_init fires before init, unless init has a priority of 0
    *
-   * Register a sidebar for the widget.
-   * Register a widget.
+   * @uses        ../../../../wp-includes/widgets.php
+   * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
+   * @see         https://wp-mix.com/wordpress-widget_init-not-working/
+   * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
+   * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
+   *
+   * @since       0.1.0
+   * @version     0.1.0
+   * @todo        Add form field parameters to the options array
+   * @todo        Investigate the 'classname' option
    */
   function wpdtrt_weather_widget_1_init() {
 
     global $wpdtrt_weather_plugin;
 
-    /**
-     * Register a widget
-     * Note: widget_init fires before init, unless init has a priority of 0
-     *
-     * @uses        ../../../../wp-includes/widgets.php
-     * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
-     * @see         https://wp-mix.com/wordpress-widget_init-not-working/
-     * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
-     * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
-     *
-     * @since       0.1.0
-     * @version     0.1.0
-     * @todo        Add form field parameters to the options array
-     * @todo        Investigate the 'classname' option
-     */
-    // we don't need to register the plugin
-    // but we do need to register widgets and shortcodes
-    // should we do that here or in the class files?
-
     $wpdtrt_weather_widget_1 = new WPDTRT_Weather_Widget_1(
       array(
         'name' => 'wpdtrt_weather_widget_1',
         'title' => __('DTRT Weather Widget', 'wpdtrt-weather'),
-        'description' => __('Display the weather', 'wpdtrt-weather'),
+        'description' => __('Display historical weather data for a GPS location.', 'wpdtrt-weather'),
         'plugin' => $wpdtrt_weather_plugin,
         'template' => 'weather',
         'selected_instance_options' => array(
           'element',
         )
-        //'classname' => 'wpdtrt-weather-widget',
       )
     );
 
-    // Missing argument 1 for Widget::__construct(),
-    // called in ~/wp-includes/class-wp-widget-factory.php on line 106
-    //register_widget( 'WPDTRT_Weather_Widget_1' );
-
-    // 4.6.0 Updated the `$widget` parameter to also accept
-    // a WP_Widget instance object
-    // instead of simply a `WP_Widget` subclass name.
-
-    // TODO: can this be moved into the constructor?
     register_widget( $wpdtrt_weather_widget_1 );
   }
 
@@ -248,6 +230,9 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 
   /**
    * Register Shortcode
+   *
+   * @todo Add centigrade as a shortcode option (#1)
+   * @todo Add units as a shortcode option (#2)
    */
   function wpdtrt_weather_shortcode_1_init() {
 
