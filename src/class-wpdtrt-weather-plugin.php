@@ -207,10 +207,16 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	*/
     public function get_api_day_icon() {
     	$day = $this->get_api_day();
+    	$data = $this->get_plugin_data();
     	$icon = null;
 
     	if ( $day ) {
-    		$icon = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
+    		$icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
+
+    		if ( isset( $icon_data ) ) {
+    		    // call DarkSky\Weather_Icon_Forecast methid get_icon()
+    			$icon = $data->get_icon( $icon_data );
+    		}
     	}
 
     	return $icon;
