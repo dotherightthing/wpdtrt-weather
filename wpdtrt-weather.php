@@ -2,7 +2,7 @@
 /*
 Plugin Name:  DTRT Weather
 Plugin URI:   https://github.com/dotherightthing/wpdtrt-weather
-Description:  Displays historical weather information for a GPS location.
+Description:  Displays historical weather information for the GPS location determined by the Featured Image.
 Version:      0.1.0
 Author:       Dan Smith
 Author URI:   https://profiles.wordpress.org/dotherightthingnz
@@ -214,7 +214,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
       array(
         'name' => 'wpdtrt_weather_widget_1',
         'title' => __('DTRT Weather Widget', 'wpdtrt-weather'),
-        'description' => __('Display historical weather data for a GPS location.', 'wpdtrt-weather'),
+        'description' => __('Display historical weather information for the GPS location determined by the Featured Image.', 'wpdtrt-weather'),
         'plugin' => $wpdtrt_weather_plugin,
         'template' => 'weather',
         'selected_instance_options' => array(

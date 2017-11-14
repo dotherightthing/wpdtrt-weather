@@ -1,6 +1,6 @@
 {
 	"name": "dotherightthingnz/wpdtrt-blocks",
-	"description": "Displays historical weather information for a GPS location",
+	"description": "Displays historical weather information for the GPS location determined by the Featured Image.",
 	"type": "library",
     "minimum-stability": "dev",
     "authors": [

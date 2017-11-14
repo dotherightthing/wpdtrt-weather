@@ -38,23 +38,16 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
     }
 
     /**
-     * Request weather data from the API.
-     * This overrides the placeholder method in the parent class.
-	 *
+     * Get the latitude and longitude from a post's/page's featured image.
+     * 	to obtain a historical forecast for this location.
+     *
      * @since       0.1.0
      * @version     1.0.0
-     * @return 		object $data A Darksky forecast object ($min, $max, $icon, $alt, $unit)
+     * @return 		array ('latitude', 'longitude')
      *
-     * @see         https://developer.wordpress.org/reference/functions/wp_remote_get/
-     * @see 		https://codex.wordpress.org/HTTP_API#Other_Arguments
-   	 * @see 		https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
-     * @uses        ../../../../wp-includes/http.php
-	 * @uses 		https://darksky.net/dev/docs/time-machine
-	 * @uses 		https://github.com/joshuadavidnelson/wp-darksky
-	 * @uses 		https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
-	 * @uses 		https://github.com/erikflowers/weather-icons
+     * @uses https://github.com/dotherightthing/wpdtrt-exif
      */
-    public function get_api_data() {
+    public function get_featured_image_latlng() {
 	    global $post;
 
 	    if ( ! function_exists('wpdtrt_exif_get_attachment_metadata_gps') ) {
@@ -63,17 +56,41 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	    	return;
 	    }
 
-		$plugin_options = $this->get_plugin_options();
-		$darksky_api_key = $plugin_options['darksky_api_key']['value']; // value must be set in options array
 	    $featured_image_id = get_post_thumbnail_id( $post->ID );
 	    $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
 	    $attachment_metadata_gps = wpdtrt_exif_get_attachment_metadata_gps( $attachment_metadata, 'number' );
 
+	    return array(
+	    	'latitude' => $attachment_metadata_gps['latitude'],
+	    	'longitude' => $attachment_metadata_gps['longitude'],
+	    );
+    }
+
+    /**
+     * Request weather data from the API.
+     * This overrides the placeholder method in the parent class.
+	 *
+     * @since       0.1.0
+     * @version     1.0.0
+     * @return 		object $data A Darksky forecast object ($min, $max, $icon, $alt, $unit)
+     *
+   	 * @see 		https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
+     * @uses        ../../../../wp-includes/http.php
+	 * @uses 		https://darksky.net/dev/docs/time-machine
+	 * @uses 		https://github.com/joshuadavidnelson/wp-darksky
+	 * @uses 		https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
+	 * @uses 		https://github.com/erikflowers/weather-icons
+     */
+    public function get_api_data() {
+
+		$plugin_options = $this->get_plugin_options();
+		$darksky_api_key = $plugin_options['darksky_api_key']['value']; // value must be set in options array
+
 	    $args = array(
 	      'api_key'       => $darksky_api_key,
-	      'latitude'      => $attachment_metadata_gps['latitude'],
-	      'longitude'     => $attachment_metadata_gps['longitude'],
-	      'time'          => get_the_date('U'),
+	      'latitude'      => $this->get_featured_image_latlng['latitude'],
+	      'longitude'     => $this->get_featured_image_latlng['longitude'],
+	      'time'          => get_the_date('U'), // the date the post was written
 	      'cache_enabled' => ( WP_DEBUG === true ) ? false : true,
 	      'query'         => array(
 	        'units'       => 'si', // metric - French Système International d'Unités
