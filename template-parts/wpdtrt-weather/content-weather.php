@@ -51,15 +51,17 @@ echo $before_title . $title . $after_title;
   if ( isset( $min, $max ) ):
 ?>
 
-<<?php echo $element; ?> title="<?php echo $summary; ?>">
-  <?php echo $icon; ?>
-  <span class=wpdtrt-plugin-screen-reader-text"><?php echo $summary; ?></span>
+<<?php echo $element; ?> title="<?php echo $summary; ?>" class="wpdtrt-weather">
+  <span class="wpdtrt-weather--icon"><?php echo $icon; ?></span>
+  <span class="wpdtrt-weather--summary"><?php echo $summary; ?></span>
   <?php if ( $max > $min ): ?>
-    <?php echo $min; ?> - <?php echo $max; ?>
+    <span class="wpdtrt-weather--min"><?php echo $min; ?></span>
+    <span class="wpdtrt-weather--range"> / </span>
+    <span class="wpdtrt-weather--max"><?php echo $max; ?></span>
   <?php else: ?>
-    <?php echo $max; ?>
+    <span class="wpdtrt-weather--max"><?php echo $max; ?></span>
   <?php endif; ?>
-  <?php echo $unit; ?>
+  <span class="wpdtrt-weather--unit"><?php echo $unit; ?></span>
 </<?php echo $element; ?>>
 
 <?php
