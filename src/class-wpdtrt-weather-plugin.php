@@ -84,7 +84,16 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
     public function get_api_data() {
 
 		$plugin_options = $this->get_plugin_options();
+
+		// if required data is missing, exit
+		if ( !isset( $plugin_options['darksky_api_key']['value'] ) ) {
+			global $debug;
+			$debug->log('darksky_api_key has no value', true, 'get_api_data()');
+			return (object)[];
+		}
+
 		$darksky_api_key = $plugin_options['darksky_api_key']['value']; // value must be set in options array
+
 		$featured_image_latlng = $this->get_featured_image_latlng();
 
 	    $args = array(
