@@ -188,7 +188,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
             'required'      => true,
             'is_callable'   => 'wpdtrt_exif_get_attachment_metadata_gps'
           )
-        )
+        ),
+        'demo_shortcode_params' => null
       )
     );
   }

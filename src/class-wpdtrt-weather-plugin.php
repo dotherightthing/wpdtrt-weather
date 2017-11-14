@@ -96,6 +96,11 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
 		$featured_image_latlng = $this->get_featured_image_latlng();
 
+		if ( !isset( $featured_image_latlng['latitude'] ) ) {
+			global $debug;
+			$debug->log('No GPS location available for this featured image', true, 'get_api_data');
+		}
+
 	    $args = array(
 	      'api_key'       => $darksky_api_key,
 	      'latitude'      => $featured_image_latlng['latitude'],
