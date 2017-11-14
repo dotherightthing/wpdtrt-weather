@@ -1,0 +1,25 @@
+{
+  "name": "dotherightthingnz/wpdtrt-blocks",
+  "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
+  "version": "0.0.1",
+  "main": "readme.txt",
+  "authors": [
+      {
+          "name": "Dan Smith",
+          "email": "dev@dotherightthing.co.nz"
+      }
+  ],
+  "dependencies": {
+    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0",
+    "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
+    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10"
+  },
+  "license": "All Rights Reserved",
+  "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor"
+  ],
+  "private": true
+}

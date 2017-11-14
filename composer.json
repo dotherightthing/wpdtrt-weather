@@ -17,18 +17,6 @@
         {
             "type": "vcs",
             "url":  "git@github.com:dotherightthing/wpdtrt-plugin.git"
-        },
-        {
-            "type": "vcs",
-            "url":  "git@github.com:joshuadavidnelson/wp-darksky.git"
-        },
-        {
-            "type": "vcs",
-            "url":  "git@github.com:erikflowers/weather-icons.git"
-        },
-        {
-            "type": "vcs",
-            "url":  "git@gist.github.com:12e9915ad81d62a6991c.git"
         }
     ],
     "require-dev": {
@@ -38,9 +26,6 @@
     },
     "require": {
         "php": ">=5.6.30",
-        "dotherightthing/wpdtrt-plugin": "dev-master",
-        "joshuadavidnelson/wp-darksky": "^1.1.0",
-        "12e9915ad81d62a6991c": "dev-master",
-        "erikflowers/weather-icons": "^2.0.10"
+        "dotherightthing/wpdtrt-plugin": "dev-master"
     }
 }
