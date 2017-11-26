@@ -43,12 +43,12 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
      *
      * @since       0.1.0
      * @version     1.0.0
+     * @param 		object $post
      * @return 		array ('latitude', 'longitude')
      *
      * @uses https://github.com/dotherightthing/wpdtrt-exif
      */
-    public function get_featured_image_latlng() {
-	    global $post;
+    public function get_featured_image_latlng( $post ) {
 
 	    if ( ! function_exists('wpdtrt_exif_get_attachment_metadata_gps') ) {
 		    global $debug;
@@ -60,6 +60,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	    $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
 	    $attachment_metadata_gps = wpdtrt_exif_get_attachment_metadata_gps( $attachment_metadata, 'number' );
 
+	    // TODO: this is a bit presumptious
 	    return array(
 	    	'latitude' => $attachment_metadata_gps['latitude'],
 	    	'longitude' => $attachment_metadata_gps['longitude'],
@@ -72,6 +73,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	 *
      * @since       0.1.0
      * @version     1.0.0
+     * @param 		object $test_post Optional $post object for unit testing
      * @return 		object $data A Darksky forecast object ($min, $max, $icon, $alt, $unit)
      *
    	 * @see 		https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
@@ -81,7 +83,13 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	 * @uses 		https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
 	 * @uses 		https://github.com/erikflowers/weather-icons
      */
-    public function get_api_data() {
+    public function get_api_data( $test_post=null ) {
+
+	    global $post;
+
+	    if ( isset( $test_post ) ) {
+	    	$post = $test_post;
+	    }
 
 		$plugin_options = $this->get_plugin_options();
 
@@ -94,7 +102,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
 		$darksky_api_key = $plugin_options['darksky_api_key']['value']; // value must be set in options array
 
-		$featured_image_latlng = $this->get_featured_image_latlng();
+		$featured_image_latlng = $this->get_featured_image_latlng( $post );
 
 		if ( !isset( $featured_image_latlng['latitude'] ) ) {
 			global $debug;
