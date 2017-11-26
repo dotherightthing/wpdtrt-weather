@@ -57,10 +57,14 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	    }
 
 	    $featured_image_id = get_post_thumbnail_id( $post->ID );
+
 	    $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
 	    $attachment_metadata_gps = wpdtrt_exif_get_attachment_metadata_gps( $attachment_metadata, 'number' );
 
-	    // TODO: this is a bit presumptious
+	    if ( ! isset( $attachment_metadata_gps['latitude'], $attachment_metadata_gps['longitude'] ) ) {
+	    	return array();
+	    }
+
 	    return array(
 	    	'latitude' => $attachment_metadata_gps['latitude'],
 	    	'longitude' => $attachment_metadata_gps['longitude'],
@@ -107,6 +111,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 		if ( !isset( $featured_image_latlng['latitude'] ) ) {
 			global $debug;
 			$debug->log('No GPS location available for this featured image', true, 'get_api_data');
+			return (object)[];
 		}
 
 	    $args = array(
@@ -123,6 +128,9 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
 	    //$debug->log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
 	    $data = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
+
+	    global $debug;
+	    $debug->log($data);
 
 		// Save the data and retrieval time
 		$this->set_plugin_data( $data );

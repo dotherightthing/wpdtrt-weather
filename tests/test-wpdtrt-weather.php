@@ -18,19 +18,20 @@
  */
 class WeatherTest extends WP_UnitTestCase {
 
-	// STUBS
+	// MOCK OBJECTS
 
 	/**
 	 * Create a test page and attach a test attachment, which contains GPS data
 	 *
+	 * @param string $filename The image file name (added to debug missing metadata, but not helping)
 	 * @return object $post
 	 *
 	 * @see https://pippinsplugins.com/unit-tests-for-wordpress-plugins-the-factory/
 	 * @see https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/factory/class-wp-unittest-factory-for-post.php
 	 * @see https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/factory/class-wp-unittest-factory-for-attachment.php
 	 */
-	function stub_post_with_featured_image() {
-		$file = WPDTRT_WEATHER_PATH . 'tests/data/23465055912_ce8ff02e9f_o_Saihan_Tal.jpg';
+	function mock_post_with_featured_image( $filename ) {
+		$file = WPDTRT_WEATHER_PATH . 'tests/data/' . $filename;
 		$post_id = $this->factory->post->create();
 		$post = get_post( $post_id );
 		$attachment_id = $this->factory->attachment->create_upload_object( $file, $post_id );
@@ -44,7 +45,7 @@ class WeatherTest extends WP_UnitTestCase {
 	 * this is usually entered into the textfield
 	 * on the plugin settings page
 	 */
-	function stub_api_key() {
+	function mock_api_key() {
 		global $wpdtrt_weather_plugin;
 
 		$plugin_options = $wpdtrt_weather_plugin->get_plugin_options();
@@ -79,9 +80,13 @@ class WeatherTest extends WP_UnitTestCase {
 	    $this->assertTrue( !isset( $data['darksky_api_key']['value'] ) );
 	}
 
+	/**
+	 * Test get_featured_image_latlng()
+	 * Tests that latitude and longitude are returned
+	 */
 	function test_get_featured_image_latlng() {
 		global $debug, $wpdtrt_weather_plugin;
-		//global $post; // doesn't work to pass stubbed post to test_get_api_data
+		//global $post; // doesn't work to pass mock post to test_get_api_data
 
 		/**
 		 * Require the plugin dependency, so we can run its functions directly.
@@ -91,7 +96,7 @@ class WeatherTest extends WP_UnitTestCase {
 		require_once( $local_websites_directory . '/wpdtrt-exif/app/wpdtrt-exif-conversion.php');
 		require_once( $local_websites_directory . '/wpdtrt-exif/app/wpdtrt-exif-data.php');
 
-		$post = $this->stub_post_with_featured_image(); // post:3, attachment:4
+		$post = $this->mock_post_with_featured_image('23465055912_ce8ff02e9f_o_Saihan_Tal.jpg'); // post:3, attachment:4
 		$data = $wpdtrt_weather_plugin->get_featured_image_latlng( $post );
 		//$debug->log( $post->ID ); // 3
 
@@ -101,12 +106,23 @@ class WeatherTest extends WP_UnitTestCase {
 	    $this->assertArrayHasKey( 'longitude', $data );
 	}
 
+	/**
+	 * Test get_api_data()
+	 * Tests that API data is retrieved
+	 * @todo this method calls get_featured_image_latlng() but fails to get latitude and longitude
+	 */
 	function test_get_api_data() {
 		global $debug, $wpdtrt_weather_plugin;
-		//global $post; // doesn't work to pass stubbed post from test_get_featured_image_latlng
+		//global $post; // doesn't work to pass mock post from test_get_featured_image_latlng
 
-		$this->stub_api_key();
-		$post = $this->stub_post_with_featured_image(); // post:5, attachment:6
+		$this->mock_api_key();
+		$post = $this->mock_post_with_featured_image('MDM_20151206_155919_20151206_1559_Outer_Mongolia.jpg'); // post:5, attachment:6
 		$data = $wpdtrt_weather_plugin->get_api_data( $post );
+
+		// cast data object to an array
+		$data_arr = (array)$data;
+
+		// test that object is not empty
+		$this->assertTrue( !empty($data_arr) );
 	}
 }

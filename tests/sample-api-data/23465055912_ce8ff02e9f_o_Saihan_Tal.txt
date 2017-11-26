@@ -1,0 +1,598 @@
+[request_url] => https://api.darksky.net/forecast/9a3c7a293c3a78a4169c1b71878b0a97/43.196167,113.672,1511319517?units=si&exclude=flags
+    [response:DarkSky\Forecast:private] => Array
+        (
+            [latitude] => 43.196167
+            [longitude] => 113.672
+            [timezone] => Asia/Shanghai
+            [currently] => Array
+                (
+                    [time] => 1511319517
+                    [summary] => Clear
+                    [icon] => clear-day
+                    [precipIntensity] => 0.0025
+                    [precipProbability] => 0.01
+                    [precipType] => snow
+                    [temperature] => -9.15
+                    [apparentTemperature] => -18.56
+                    [dewPoint] => -17.46
+                    [humidity] => 0.51
+                    [pressure] => 1029.16
+                    [windSpeed] => 8.67
+                    [windGust] => 11.32
+                    [windBearing] => 287
+                    [cloudCover] => 0.04
+                    [uvIndex] => 1
+                    [ozone] => 362.89
+                )
+
+            [hourly] => Array
+                (
+                    [summary] => Mostly cloudy until evening.
+                    [icon] => partly-cloudy-day
+                    [data] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [time] => 1511280000
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.066
+                                    [precipProbability] => 0.07
+                                    [precipAccumulation] => 0.119
+                                    [precipType] => snow
+                                    [temperature] => -8.54
+                                    [apparentTemperature] => -14.08
+                                    [dewPoint] => -14.57
+                                    [humidity] => 0.62
+                                    [pressure] => 1028.86
+                                    [windSpeed] => 3.29
+                                    [windGust] => 5.85
+                                    [windBearing] => 296
+                                    [cloudCover] => 0.75
+                                    [uvIndex] => 0
+                                    [ozone] => 357.05
+                                )
+
+                            [1] => Array
+                                (
+                                    [time] => 1511283600
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.0864
+                                    [precipProbability] => 0.09
+                                    [precipAccumulation] => 0.155
+                                    [precipType] => snow
+                                    [temperature] => -8.61
+                                    [apparentTemperature] => -13.94
+                                    [dewPoint] => -14.14
+                                    [humidity] => 0.64
+                                    [pressure] => 1028.59
+                                    [windSpeed] => 3.09
+                                    [windGust] => 5.47
+                                    [windBearing] => 292
+                                    [cloudCover] => 0.78
+                                    [uvIndex] => 0
+                                    [ozone] => 356.45
+                                )
+
+                            [2] => Array
+                                (
+                                    [time] => 1511287200
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.0889
+                                    [precipProbability] => 0.09
+                                    [precipAccumulation] => 0.168
+                                    [precipType] => snow
+                                    [temperature] => -8.91
+                                    [apparentTemperature] => -14.72
+                                    [dewPoint] => -14.28
+                                    [humidity] => 0.65
+                                    [pressure] => 1028.7
+                                    [windSpeed] => 3.46
+                                    [windGust] => 6.48
+                                    [windBearing] => 284
+                                    [cloudCover] => 0.82
+                                    [uvIndex] => 0
+                                    [ozone] => 356.38
+                                )
+
+                            [3] => Array
+                                (
+                                    [time] => 1511290800
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.0635
+                                    [precipProbability] => 0.07
+                                    [precipAccumulation] => 0.117
+                                    [precipType] => snow
+                                    [temperature] => -9
+                                    [apparentTemperature] => -15.3
+                                    [dewPoint] => -13.52
+                                    [humidity] => 0.7
+                                    [pressure] => 1028.51
+                                    [windSpeed] => 3.95
+                                    [windGust] => 7.05
+                                    [windBearing] => 284
+                                    [cloudCover] => 0.87
+                                    [uvIndex] => 0
+                                    [ozone] => 356.19
+                                )
+
+                            [4] => Array
+                                (
+                                    [time] => 1511294400
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.0381
+                                    [precipProbability] => 0.05
+                                    [precipAccumulation] => 0.071
+                                    [precipType] => snow
+                                    [temperature] => -9.08
+                                    [apparentTemperature] => -16
+                                    [dewPoint] => -12.57
+                                    [humidity] => 0.76
+                                    [pressure] => 1028.36
+                                    [windSpeed] => 4.66
+                                    [windGust] => 7.81
+                                    [windBearing] => 286
+                                    [cloudCover] => 0.93
+                                    [uvIndex] => 0
+                                    [ozone] => 356.18
+                                )
+
+                            [5] => Array
+                                (
+                                    [time] => 1511298000
+                                    [summary] => Overcast
+                                    [icon] => cloudy
+                                    [precipIntensity] => 0.0305
+                                    [precipProbability] => 0.04
+                                    [precipAccumulation] => 0.058
+                                    [precipType] => snow
+                                    [temperature] => -9.23
+                                    [apparentTemperature] => -16.74
+                                    [dewPoint] => -12.31
+                                    [humidity] => 0.78
+                                    [pressure] => 1028.34
+                                    [windSpeed] => 5.39
+                                    [windGust] => 8.57
+                                    [windBearing] => 288
+                                    [cloudCover] => 0.96
+                                    [uvIndex] => 0
+                                    [ozone] => 356.59
+                                )
+
+                            [6] => Array
+                                (
+                                    [time] => 1511301600
+                                    [summary] => Overcast
+                                    [icon] => cloudy
+                                    [precipIntensity] => 0.0178
+                                    [precipProbability] => 0.03
+                                    [precipAccumulation] => 0.036
+                                    [precipType] => snow
+                                    [temperature] => -9.79
+                                    [apparentTemperature] => -17.98
+                                    [dewPoint] => -13.27
+                                    [humidity] => 0.76
+                                    [pressure] => 1028.72
+                                    [windSpeed] => 6.15
+                                    [windGust] => 9.27
+                                    [windBearing] => 290
+                                    [cloudCover] => 0.94
+                                    [uvIndex] => 0
+                                    [ozone] => 357.9
+                                )
+
+                            [7] => Array
+                                (
+                                    [time] => 1511305200
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0.0076
+                                    [precipProbability] => 0.02
+                                    [precipAccumulation] => 0.015
+                                    [precipType] => snow
+                                    [temperature] => -10.63
+                                    [apparentTemperature] => -19.54
+                                    [dewPoint] => -14.89
+                                    [humidity] => 0.71
+                                    [pressure] => 1029.27
+                                    [windSpeed] => 6.96
+                                    [windGust] => 9.94
+                                    [windBearing] => 292
+                                    [cloudCover] => 0.88
+                                    [uvIndex] => 0
+                                    [ozone] => 359.72
+                                )
+
+                            [8] => Array
+                                (
+                                    [time] => 1511308800
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-day
+                                    [precipIntensity] => 0.0051
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -10.23
+                                    [apparentTemperature] => -19.61
+                                    [dewPoint] => -16.31
+                                    [humidity] => 0.61
+                                    [pressure] => 1029.93
+                                    [windSpeed] => 7.97
+                                    [windGust] => 11.41
+                                    [windBearing] => 288
+                                    [cloudCover] => 0.8
+                                    [uvIndex] => 0
+                                    [ozone] => 361.67
+                                )
+
+                            [9] => Array
+                                (
+                                    [time] => 1511312400
+                                    [summary] => Partly Cloudy
+                                    [icon] => partly-cloudy-day
+                                    [precipIntensity] => 0.0051
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -10.13
+                                    [apparentTemperature] => -19.66
+                                    [dewPoint] => -16.93
+                                    [humidity] => 0.57
+                                    [pressure] => 1029.92
+                                    [windSpeed] => 8.31
+                                    [windGust] => 11.51
+                                    [windBearing] => 287
+                                    [cloudCover] => 0.55
+                                    [uvIndex] => 0
+                                    [ozone] => 362.34
+                                )
+
+                            [10] => Array
+                                (
+                                    [time] => 1511316000
+                                    [summary] => Clear
+                                    [icon] => clear-day
+                                    [precipIntensity] => 0.0051
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -9.69
+                                    [apparentTemperature] => -19.16
+                                    [dewPoint] => -17.23
+                                    [humidity] => 0.54
+                                    [pressure] => 1029.62
+                                    [windSpeed] => 8.46
+                                    [windGust] => 11.3
+                                    [windBearing] => 287
+                                    [cloudCover] => 0.24
+                                    [uvIndex] => 1
+                                    [ozone] => 362.63
+                                )
+
+                            [11] => Array
+                                (
+                                    [time] => 1511319600
+                                    [summary] => Clear
+                                    [icon] => clear-day
+                                    [precipIntensity] => 0.0025
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -9.14
+                                    [apparentTemperature] => -18.54
+                                    [dewPoint] => -17.47
+                                    [humidity] => 0.51
+                                    [pressure] => 1029.15
+                                    [windSpeed] => 8.68
+                                    [windGust] => 11.32
+                                    [windBearing] => 287
+                                    [cloudCover] => 0.03
+                                    [uvIndex] => 1
+                                    [ozone] => 362.89
+                                )
+
+                            [12] => Array
+                                (
+                                    [time] => 1511323200
+                                    [summary] => Clear
+                                    [icon] => clear-day
+                                    [precipIntensity] => 0.0025
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -8.37
+                                    [apparentTemperature] => -17.75
+                                    [dewPoint] => -17.62
+                                    [humidity] => 0.47
+                                    [pressure] => 1028.37
+                                    [windSpeed] => 9.16
+                                    [windGust] => 11.91
+                                    [windBearing] => 287
+                                    [cloudCover] => 0
+                                    [uvIndex] => 2
+                                    [ozone] => 363.34
+                                )
+
+                            [13] => Array
+                                (
+                                    [time] => 1511326800
+                                    [summary] => Clear
+                                    [icon] => clear-day
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -7.47
+                                    [apparentTemperature] => -16.82
+                                    [dewPoint] => -17.77
+                                    [humidity] => 0.43
+                                    [pressure] => 1027.44
+                                    [windSpeed] => 9.73
+                                    [windGust] => 12.75
+                                    [windBearing] => 288
+                                    [cloudCover] => 0.06
+                                    [uvIndex] => 1
+                                    [ozone] => 363.81
+                                )
+
+                            [14] => Array
+                                (
+                                    [time] => 1511330400
+                                    [summary] => Clear
+                                    [icon] => clear-day
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -6.98
+                                    [apparentTemperature] => -16.29
+                                    [dewPoint] => -18.14
+                                    [humidity] => 0.4
+                                    [pressure] => 1026.49
+                                    [windSpeed] => 10.04
+                                    [windGust] => 13.26
+                                    [windBearing] => 290
+                                    [cloudCover] => 0.18
+                                    [uvIndex] => 1
+                                    [ozone] => 363.39
+                                )
+
+                            [15] => Array
+                                (
+                                    [time] => 1511334000
+                                    [summary] => Partly Cloudy
+                                    [icon] => partly-cloudy-day
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -7.04
+                                    [apparentTemperature] => -16.37
+                                    [dewPoint] => -19.12
+                                    [humidity] => 0.37
+                                    [pressure] => 1026.48
+                                    [windSpeed] => 10.04
+                                    [windGust] => 13.55
+                                    [windBearing] => 292
+                                    [cloudCover] => 0.37
+                                    [uvIndex] => 1
+                                    [ozone] => 363.56
+                                )
+
+                            [16] => Array
+                                (
+                                    [time] => 1511337600
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-day
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -7.48
+                                    [apparentTemperature] => -16.86
+                                    [dewPoint] => -20.4
+                                    [humidity] => 0.35
+                                    [pressure] => 1026.83
+                                    [windSpeed] => 9.8
+                                    [windGust] => 13.67
+                                    [windBearing] => 296
+                                    [cloudCover] => 0.61
+                                    [uvIndex] => 0
+                                    [ozone] => 363.78
+                                )
+
+                            [17] => Array
+                                (
+                                    [time] => 1511341200
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -8.01
+                                    [apparentTemperature] => -17.37
+                                    [dewPoint] => -21.34
+                                    [humidity] => 0.33
+                                    [pressure] => 1027.18
+                                    [windSpeed] => 9.38
+                                    [windGust] => 13.64
+                                    [windBearing] => 297
+                                    [cloudCover] => 0.74
+                                    [uvIndex] => 0
+                                    [ozone] => 364.48
+                                )
+
+                            [18] => Array
+                                (
+                                    [time] => 1511344800
+                                    [summary] => Mostly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -8.49
+                                    [apparentTemperature] => -17.68
+                                    [dewPoint] => -21.71
+                                    [humidity] => 0.33
+                                    [pressure] => 1027.52
+                                    [windSpeed] => 8.66
+                                    [windGust] => 13.44
+                                    [windBearing] => 298
+                                    [cloudCover] => 0.69
+                                    [uvIndex] => 0
+                                    [ozone] => 366.02
+                                )
+
+                            [19] => Array
+                                (
+                                    [time] => 1511348400
+                                    [summary] => Partly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -8.98
+                                    [apparentTemperature] => -17.88
+                                    [dewPoint] => -21.78
+                                    [humidity] => 0.34
+                                    [pressure] => 1027.88
+                                    [windSpeed] => 7.79
+                                    [windGust] => 13.09
+                                    [windBearing] => 297
+                                    [cloudCover] => 0.54
+                                    [uvIndex] => 0
+                                    [ozone] => 367.97
+                                )
+
+                            [20] => Array
+                                (
+                                    [time] => 1511352000
+                                    [summary] => Partly Cloudy
+                                    [icon] => partly-cloudy-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -9.64
+                                    [apparentTemperature] => -18.58
+                                    [dewPoint] => -22.02
+                                    [humidity] => 0.36
+                                    [pressure] => 1028.87
+                                    [windSpeed] => 7.49
+                                    [windGust] => 12.86
+                                    [windBearing] => 291
+                                    [cloudCover] => 0.38
+                                    [uvIndex] => 0
+                                    [ozone] => 369.72
+                                )
+
+                            [21] => Array
+                                (
+                                    [time] => 1511355600
+                                    [summary] => Clear
+                                    [icon] => clear-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -9.8
+                                    [apparentTemperature] => -18.62
+                                    [dewPoint] => -22.27
+                                    [humidity] => 0.35
+                                    [pressure] => 1028.87
+                                    [windSpeed] => 7.18
+                                    [windGust] => 12.57
+                                    [windBearing] => 278
+                                    [cloudCover] => 0.24
+                                    [uvIndex] => 0
+                                    [ozone] => 371.17
+                                )
+
+                            [22] => Array
+                                (
+                                    [time] => 1511359200
+                                    [summary] => Clear
+                                    [icon] => clear-night
+                                    [precipIntensity] => 0
+                                    [precipProbability] => 0
+                                    [temperature] => -9.88
+                                    [apparentTemperature] => -18.62
+                                    [dewPoint] => -22.51
+                                    [humidity] => 0.35
+                                    [pressure] => 1028.6
+                                    [windSpeed] => 7.01
+                                    [windGust] => 12.26
+                                    [windBearing] => 272
+                                    [cloudCover] => 0.1
+                                    [uvIndex] => 0
+                                    [ozone] => 372.42
+                                )
+
+                            [23] => Array
+                                (
+                                    [time] => 1511362800
+                                    [summary] => Clear
+                                    [icon] => clear-night
+                                    [precipIntensity] => 0.0025
+                                    [precipProbability] => 0.01
+                                    [precipAccumulation] => 0
+                                    [precipType] => snow
+                                    [temperature] => -9.97
+                                    [apparentTemperature] => -18.67
+                                    [dewPoint] => -22.71
+                                    [humidity] => 0.34
+                                    [pressure] => 1028.19
+                                    [windSpeed] => 6.9
+                                    [windGust] => 12.09
+                                    [windBearing] => 276
+                                    [cloudCover] => 0
+                                    [uvIndex] => 0
+                                    [ozone] => 372.7
+                                )
+
+                        )
+
+                )
+
+            [daily] => Array
+                (
+                    [data] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [time] => 1511280000
+                                    [summary] => Mostly cloudy until evening.
+                                    [icon] => partly-cloudy-day
+                                    [sunriseTime] => 1511306885
+                                    [sunsetTime] => 1511341058
+                                    [moonPhase] => 0.11
+                                    [precipIntensity] => 0.0178
+                                    [precipIntensityMax] => 0.0889
+                                    [precipIntensityMaxTime] => 1511287200
+                                    [precipProbability] => 0.18
+                                    [precipAccumulation] => 0.777
+                                    [precipType] => snow
+                                    [temperatureHigh] => -6.98
+                                    [temperatureHighTime] => 1511330400
+                                    [temperatureLow] => -12.84
+                                    [temperatureLowTime] => 1511395200
+                                    [apparentTemperatureHigh] => -16.29
+                                    [apparentTemperatureHighTime] => 1511330400
+                                    [apparentTemperatureLow] => -20.28
+                                    [apparentTemperatureLowTime] => 1511384400
+                                    [dewPoint] => -17.71
+                                    [humidity] => 0.51
+                                    [pressure] => 1028.36
+                                    [windSpeed] => 7.19
+                                    [windGust] => 13.67
+                                    [windGustTime] => 1511337600
+                                    [windBearing] => 289
+                                    [cloudCover] => 0.52
+                                    [uvIndex] => 2
+                                    [uvIndexTime] => 1511323200
+                                    [ozone] => 362.85
+                                    [temperatureMin] => -10.63
+                                    [temperatureMinTime] => 1511305200
+                                    [temperatureMax] => -6.98
+                                    [temperatureMaxTime] => 1511330400
+                                    [apparentTemperatureMin] => -19.66
+                                    [apparentTemperatureMinTime] => 1511312400
+                                    [apparentTemperatureMax] => -13.94
+                                    [apparentTemperatureMaxTime] => 1511283600
+                                )
+
+                        )
+
+                )
+
+            [offset] => 8
+        )
