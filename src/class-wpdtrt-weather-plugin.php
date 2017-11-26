@@ -52,7 +52,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
 	    if ( ! function_exists('wpdtrt_exif_get_attachment_metadata_gps') ) {
 		    global $debug;
-	    	$debug->log( 'wpdtrt_weather missing dependency, please install required plugins' );
+	    	$debug->log( 'wpdtrt_exif_get_attachment_metadata_gps missing, please install required plugins' );
 	    	return;
 	    }
 

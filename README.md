@@ -4,7 +4,7 @@ Displays historical weather information for the GPS location determined by the F
 
 ## Setup
 
-Please read [DTRT WP Plugin: Set up a child plugin](https://github.com/dotherightthing/wpdtrt-plugin/#set-up-a-child-plugin).
+Please read [DTRT WP Plugin: Set up a plugin](https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-plugin).
 
 ## Usage
 

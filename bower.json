@@ -2,7 +2,7 @@
   "name": "dotherightthingnz/wpdtrt-weather",
   "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
   "version": "0.0.1",
-  "main": "readme.txt",
+  "main": "wpdtrt-weather.php",
   "authors": [
       {
           "name": "Dan Smith",

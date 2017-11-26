@@ -105,6 +105,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
   require_once(WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-widgets.php');
 
   // log & trace helpers
+  global $debug;
   $debug = new DoTheRightThing\WPDebug\Debug;
 
   /**
@@ -126,6 +127,12 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 
     /**
      * Admin settings
+     * For array syntax, please view the field documentation:
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-checkbox.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-number.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-password.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-select.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-text.php
      */
     $plugin_options = array(
       'darksky_api_key' => array(
@@ -137,6 +144,12 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 
     /**
      * All options available to Widgets and Shortcodes
+     * For array syntax, please view the field documentation:
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-checkbox.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-number.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-password.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-select.php
+     * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-text.php
      */
     $instance_options = array(
       'element' => array(

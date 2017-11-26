@@ -18,7 +18,7 @@ Displays historical weather information for a GPS location determined by the Fea
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/wpdtrt-weather` directory.
+1. Upload the plugin files to the `/wp-content/plugins/wpdtrt-weather` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Use the Settings->DTRT Weather screen to configure the plugin
 
@@ -43,16 +43,14 @@ One or more widgets can be displayed within one or more sidebars:
 <?php echo do_shortcode( '[wpdtrt_weather_shortcode_1 element="dd"]' ); ?>
 ```
 
-= Shortcode options =
-
-1. `element="dd"` (default) - Type of element to wrap results in
+Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 
 == Changelog ==
 
-= 0.1 =
+= 0.0.1 =
 * Initial version
 
 == Upgrade Notice ==
 
-= 0.1 =
+= 0.0.1 =
 * Initial release

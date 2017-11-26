@@ -3,6 +3,9 @@
 	"description": "Displays historical weather information for the GPS location determined by the Featured Image.",
 	"type": "library",
     "minimum-stability": "dev",
+    "config": {
+        "vendor-dir": "vendor"
+    },
     "authors": [
         {
             "name": "Dan Smith",
