@@ -110,6 +110,8 @@ class WeatherTest extends WP_UnitTestCase {
 	 * Test get_api_data()
 	 * Tests that API data is retrieved
 	 * @todo this method calls get_featured_image_latlng() but fails to get latitude and longitude
+	 * @todo add tests to wpdtrt-exif
+	 * @todo add tests for functions which parse the api data
 	 */
 	function test_get_api_data() {
 		global $debug, $wpdtrt_weather_plugin;
