@@ -16,7 +16,7 @@ Please read the [WordPress readme.txt](readme.txt) for usage instructions.
 
 See *Setup*, above.
 
-Test that PHPUnit was installed successfully:
+Test that WP-CLI was installed successfully:
 
 ```
 $ wp --info
