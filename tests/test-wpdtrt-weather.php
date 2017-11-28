@@ -3,10 +3,7 @@
  * Unit tests, using PHPUnit and wp-cli.
  *
  * @package wpdtrt_weather
- * @see https://developer.wordpress.org/cli/commands/
- * @see https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/factory.php
- * @see https://pippinsplugins.com/unit-tests-wordpress-plugins-writing-tests/
- * @see http://kb.dotherightthing.dan/php/wordpress/php-unit-testing-revisited/ for setup
+ * @see http://kb.dotherightthing.dan/php/wordpress/php-unit-testing-revisited/ - Links
  */
 
 /**
@@ -15,6 +12,7 @@
  * so the plugin class has already been instantiated
  * with the options set in wpdtrt-weather.php
  * Note: only function names prepended with test_ are run
+ * $debug logs are output with the test output in Terminal
  */
 class WeatherTest extends WP_UnitTestCase {
 
