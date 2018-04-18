@@ -21,9 +21,9 @@
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  *
- * @package     wpdtrt_weather
- * @since       1.0.0
- * @version     1.0.0
+ * @package     WPDTRT_Weather
+ * @version     0.0.1
+ * @since       0.7.5
  */
 
 // if uninstall.php is not called by WordPress, die
@@ -35,9 +35,5 @@ delete_option('wpdtrt_weather');
 
 // for site options in Multisite
 delete_site_option('wpdtrt_weather');
-
-// drop a custom database table
-//global $wpdb;
-//$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}mytable");
 
 ?>

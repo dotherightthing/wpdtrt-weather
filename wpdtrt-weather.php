@@ -1,16 +1,16 @@
 <?php
-/*
-Plugin Name:  DTRT Weather
-Plugin URI:   https://github.com/dotherightthing/wpdtrt-weather
-Description:  Displays historical weather information for the GPS location determined by the Featured Image.
-Version:      0.1.0
-Author:       Dan Smith
-Author URI:   https://profiles.wordpress.org/dotherightthingnz
-License:      GPLv2 or later
-License URI:  http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:  wpdtrt-weather
-Domain Path:  /languages
-*/
+/**
+ * Plugin Name:  DTRT Weather
+ * Plugin URI:   https://github.com/dotherightthing/wpdtrt-weather
+ * Description:  Displays historical weather information for the GPS location determined by the Featured Image.
+ * Version:      0.0.1
+ * Author:       Dan Smith
+ * Author URI:   https://profiles.wordpress.org/dotherightthingnz
+ * License:      GPLv2 or later
+ * License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  wpdtrt-weather
+ * Domain Path:  /languages
+ */
 
 //require_once(WPDTRT_WEATHER_PATH . 'vendor/wp-darksky/wp-darksky.php');
 //require_once(WPDTRT_WEATHER_PATH . 'vendor/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
@@ -37,6 +37,14 @@ require_once plugin_dir_path( __FILE__ ) . "vendor/autoload.php";
  * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
  */
 
+/**
+  * Determine the correct path to the autoloader
+  * @see https://github.com/dotherightthing/wpdtrt-plugin/issues/51
+  */
+if( ! defined( 'WPDTRT_PLUGIN_CHILD' ) ) {
+  define( 'WPDTRT_PLUGIN_CHILD', true );
+}
+
 if( ! defined( 'WPDTRT_WEATHER_VERSION' ) ) {
 /**
  * Plugin version.
@@ -47,10 +55,10 @@ if( ! defined( 'WPDTRT_WEATHER_VERSION' ) ) {
  * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
  * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
  *
- * @since     0.1.0
- * @version   0.1.0
+ * @version   0.0.1
+ * @since     0.7.5
  */
-  define( 'WPDTRT_WEATHER_VERSION', '0.1.0' );
+  define( 'WPDTRT_WEATHER_VERSION', '0.0.1' );
 }
 
 if( ! defined( 'WPDTRT_WEATHER_PATH' ) ) {
@@ -63,8 +71,8 @@ if( ! defined( 'WPDTRT_WEATHER_PATH' ) ) {
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  *
- * @since     0.1.0
- * @version   0.1.0
+ * @version   0.0.1
+ * @since     0.7.5
  */
   define( 'WPDTRT_WEATHER_PATH', plugin_dir_path( __FILE__ ) );
 }
@@ -79,8 +87,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  *
- * @since     0.1.0
- * @version   0.1.0
+ * @version   0.0.1
+ * @since     0.7.5
  */
   define( 'WPDTRT_WEATHER_URL', plugin_dir_url( __FILE__ ) );
 }
@@ -88,8 +96,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 /**
  * Include plugin logic
  *
- * @since     0.1.0
- * @version   0.1.0
+ * @version   0.0.1
+ * @since     0.7.5
  */
 
   // base class
@@ -105,7 +113,6 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
   require_once(WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-widgets.php');
 
   // log & trace helpers
-  global $debug;
   $debug = new DoTheRightThing\WPDebug\Debug;
 
   /**
@@ -179,7 +186,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
         'prefix' => 'wpdtrt_weather',
         'slug' => 'wpdtrt-weather',
         'menu_title' => __('Weather', 'wpdtrt-weather'),
-        'developer_prefix' => 'DTRT',
+        'developer_prefix' => '',
         'path' => WPDTRT_WEATHER_PATH,
         'messages' => array(
           'loading' => __('Loading latest data...', 'wpdtrt-weather'),
@@ -220,8 +227,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
    * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
    * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
    *
-   * @since       0.1.0
-   * @version     0.1.0
+   * @version     0.0.1
+   * @since       0.7.5
    * @todo        Add form field parameters to the options array
    * @todo        Investigate the 'classname' option
    */
@@ -276,8 +283,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
    *
    * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
    *
-   * @since     0.6.0
-   * @version   0.1.0
+   * @version   0.0.1
+   * @since     0.7.5
    */
   function wpdtrt_weather_activate() {
     //wpdtrt_weather_rewrite_rules();
@@ -293,8 +300,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
    *
    * @see https://codex.wordpress.org/Function_Reference/register_deactivation_hook
    *
-   * @since     0.6.0
-   * @version   0.1.0
+   * @version   0.0.1
+   * @since     0.7.5
    */
   function wpdtrt_weather_deactivate() {
     flush_rewrite_rules();

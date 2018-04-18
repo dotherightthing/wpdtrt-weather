@@ -3,8 +3,8 @@
  * Widget classes.
  *
  * @package     wpdtrt_weather
- * @since       1.0.0
- * @version 	1.0.0
+ * @version 	0.0.1
+ * @since       0.7.5
  */
 
 /**

@@ -1,12 +1,10 @@
 <?php
 /**
- * Template to display blocks in shortcodes and widgets
+ * Template to display plugin output in shortcodes and widgets
  *
- * @package     wpdtrt_weather
- * @since       1.0.0
- * @version     1.0.0
- *
- * @todo Is this query var seen by other plugins which also use this class?
+ * @package   DTRT Weather
+ * @version   0.0.1
+ * @since     0.7.5
  */
 
 // Predeclare variables
@@ -42,7 +40,7 @@ $icon =     $plugin->get_api_day_icon();
 $summary =  $plugin->get_api_day_summary();
 $unit =     $plugin->get_api_day_unit();
 
-// WordPress widget options (widget, not shortcode)
+// WordPress widget options (not output with shortcode)
 echo $before_widget;
 echo $before_title . $title . $after_title;
 ?>

@@ -1,13 +1,13 @@
 {
-  "name": "dotherightthingnz/wpdtrt-weather",
-  "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
+  "name": "wpdtrt-weather",
   "version": "0.0.1",
+  "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
   "main": "wpdtrt-weather.php",
   "authors": [
-      {
-          "name": "Dan Smith",
-          "email": "dev@dotherightthing.co.nz"
-      }
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz"
+    }
   ],
   "dependencies": {
     "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0",

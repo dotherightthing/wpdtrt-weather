@@ -3,10 +3,10 @@
 Contributors: dotherightthingnz
 Donate link: http://dotherightthing.co.nz
 Tags: weather, forecast, GPS
-Requires at least: 4.8.3
-Tested up to: 4.8.3
+Requires at least: 4.9.5
+Tested up to: 4.9.5
 Requires PHP: 5.6.30
-Stable tag: 0.1.0
+Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Displays historical weather information for the GPS location determined by the F
 
 == Description ==
 
-Displays historical weather information for a GPS location determined by the Featured Image.
+Displays historical weather information for the GPS location determined by the Featured Image.
 
 == Installation ==
 
@@ -44,6 +44,11 @@ One or more widgets can be displayed within one or more sidebars:
 ```
 
 Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
+
+== Screenshots ==
+
+1. The caption for ./images/screenshot-1.(png|jpg|jpeg|gif)
+2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
 
