@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef30e68a8ef0a301bf7dac7ee04287b1",
+    "content-hash": "e166e3b55286d47206c0fd9823ded432",
     "packages": [
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -60,17 +60,66 @@
             "time": "2018-03-22T09:48:20+00:00"
         },
         {
-            "name": "dotherightthing/wpdtrt-plugin",
-            "version": "1.2.22",
+            "name": "dotherightthing/wpdtrt-exif",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dotherightthing/wpdtrt-plugin.git",
-                "reference": "36f1fd84008413c5a3488ebe3f90d34c97e48d97"
+                "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
+                "reference": "881789a55c23dc681f1afecbf3b561e064599636"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin/zipball/36f1fd84008413c5a3488ebe3f90d34c97e48d97",
-                "reference": "36f1fd84008413c5a3488ebe3f90d34c97e48d97",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/881789a55c23dc681f1afecbf3b561e064599636",
+                "reference": "881789a55c23dc681f1afecbf3b561e064599636",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/dotherightthing/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "dotherightthing/wpdtrt-plugin": "^1.0.0"
+            },
+            "type": "library",
+            "notification-url": "https://repo.packagist.com/dotherightthing/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "https://github.com/dotherightthing/wpdtrt-exif",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds EXIF (time and geotag) fields to the attachment media modal, for use by other plugins.",
+            "keywords": [
+                "attachment",
+                "exif",
+                "geotag"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/master"
+            },
+            "time": "2018-04-22 09:04:21"
+        },
+        {
+            "name": "dotherightthing/wpdtrt-plugin",
+            "version": "1.2.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt-plugin.git",
+                "reference": "7c5ea671f48c54f9c310d253a6d8c29b3ff861d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin/zipball/7c5ea671f48c54f9c310d253a6d8c29b3ff861d6",
+                "reference": "7c5ea671f48c54f9c310d253a6d8c29b3ff861d6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -121,9 +170,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-tourdates/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-plugin/tree/1.2.22"
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin/tree/1.2.24"
             },
-            "time": "2018-04-17T04:43:52+00:00"
+            "time": "2018-04-23T02:58:57+00:00"
         },
         {
             "name": "gamajo/template-loader",
@@ -178,7 +227,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dotherightthing/wpdtrt-exif": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
