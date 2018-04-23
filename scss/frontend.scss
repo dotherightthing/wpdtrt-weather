@@ -1,24 +1,28 @@
-/**
- * Styles for the public front-end
- *
- * @package     WPDTRT_Weather
- * @version 	0.0.1
- * @since       0.7.5
- */
+//
+// Styles for the public front-end
+//
+// @package     WPDTRT_Weather
+// @version 	0.0.1
+// @since       0.7.5
+//
 
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_variables.scss";
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_extends.scss";
-
-$wi-path: "../vendor/weather-icons/font";
+@import "variables";
+@import "extends";
 @import "vendor/weather-icons/sass/weather-icons.scss";
+
+// -------------------------------------------------------------------
+// Styles
+// -------------------------------------------------------------------
 
 .wpdtrt-weather {
 	display: inline-block;
-	background-color: rgba(0, 0, 0, .025);
+	background-color: $wpdtrt-weather-bg-color;
 	font-family: sans-serif;
 	font-size: 15px;
 	padding: 11px;
-	border: 1px dotted #ccc;
+	border: 1px dotted $wpdtrt-weather-border-color;
 	border-radius: 4px;
 
 	&--summary {
@@ -26,34 +30,39 @@ $wi-path: "../vendor/weather-icons/font";
 	}
 
 	&--icon {
-		background-color: #333;
-		color: #fafafa;
+		background-color: $wpdtrt-weather-icon-bg-color;
+		color: $wpdtrt-weather-icon-color;
 		display: inline-block;
 		padding: 11px;
-		border-right: 1px solid #fff;
+		border-right: 1px solid $wpdtrt-weather-icon-divider-color;
 		border-radius: 4px 0 0 4px;
 		margin: -11px 11px -11px -11px;
 	}
 
 	&--min {
 		font-weight: bold;
-		color: #2196f3; // material.io blue
+		color: $wpdtrt-weather-icon-color--min;
 	}
 
 	&--range {
-		color: #333;
+		color: $wpdtrt-weather-text-color;
 	}
 
 	&--max {
 		font-weight: bold;
-		color: #f44336; // material.io red
+		color: $wpdtrt-weather-icon-color--max;
 	}
 
 	&--unit {
-		color: #333;
+		color: $wpdtrt-weather-text-color;
 
 		abbr {
 			text-decoration: none;
 		}
 	}
 }
+
+// -------------------------------------------------------------------
+// Media Queries
+// -------------------------------------------------------------------
+

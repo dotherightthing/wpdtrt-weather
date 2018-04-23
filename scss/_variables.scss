@@ -1,0 +1,46 @@
+//
+// Variables
+//
+// @package     WPDTRT_Weather
+// @version 	0.0.1
+// @since       0.7.6
+//
+
+@import "vendor/dotherightthing/wpdtrt-plugin/node_modules/include-media/dist/_include-media";
+
+// -------------------------------------------------------------------
+// Breakpoints
+// -------------------------------------------------------------------
+
+// $breakpoints for include-media
+// Usage: @include media(">phone", "<=tablet") { ... }
+// Usage: @include media("<=1150px") { ... }
+// See https://include-media.com/
+
+$breakpoints: (
+    phone: 320px,
+    phone_large: 400px,
+    tablet_small: 550px,
+    tablet: 710px,
+    desktop: 910px
+);
+
+// -------------------------------------------------------------------
+// Colors
+// http://hex2rgba.devoth.com/
+// -------------------------------------------------------------------
+
+$wpdtrt-weather-bg-color: rgba(0, 0, 0, .025);
+$wpdtrt-weather-border-color: rgba(204, 204, 204, 1);
+$wpdtrt-weather-icon-bg-color: rgba(51, 51, 51, 1);
+$wpdtrt-weather-icon-color: rgba(250, 250, 250, 1);
+$wpdtrt-weather-icon-color--min: rgba(33, 150, 243, 1); // material.io blue
+$wpdtrt-weather-icon-color--max: rgba(244, 67, 54, 1); // material.io red
+$wpdtrt-weather-icon-divider-color: rgba(255, 255, 255, 1);
+$wpdtrt-weather-text-color: rgba(51, 51, 51, 1);
+
+// -------------------------------------------------------------------
+// Paths
+// -------------------------------------------------------------------
+
+$wi-path: "../vendor/weather-icons/font";
