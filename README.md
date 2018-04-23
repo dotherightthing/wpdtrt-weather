@@ -1,6 +1,6 @@
 # DTRT Weather
 
-[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/wpdtrt-weather.svg)](https://github.com/dotherightthing/wpdtrt-weather/tags) [![Build Status](https://travis-ci.org/dotherightthing/wpdtrt-weather.svg?branch=master)](https://travis-ci.org/dotherightthing/wpdtrt-weather) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt-weather.svg)](https://github.com/dotherightthing/wpdtrt-weather/issues)
+[![GitHub release](https://img.shields.io/github/release/dotherightthing/wpdtrt-weather.svg)](https://github.com/dotherightthing/wpdtrt-weather/releases) [![Build Status](https://travis-ci.org/dotherightthing/wpdtrt-weather.svg?branch=master)](https://travis-ci.org/dotherightthing/wpdtrt-weather) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt-weather.svg)](https://github.com/dotherightthing/wpdtrt-weather/issues)
 
 Displays historical weather information for the GPS location determined by the Featured Image.
 
