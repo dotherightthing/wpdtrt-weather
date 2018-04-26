@@ -202,6 +202,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
           'demo_shortcode_title' => __('Demo shortcode', 'wpdtrt-weather'),
           'demo_data_description' => __('This demo was generated from the following data', 'wpdtrt-weather'),
           'demo_date_last_updated' => __('Data last updated', 'wpdtrt-weather'),
+          'demo_data_length' => __('results', 'wpdtrt-weather'),
+          'demo_data_displayed_length' => __('results displayed', 'wpdtrt-weather'),
         ),
         'plugin_options' => $plugin_options,
         'instance_options' => $instance_options,
