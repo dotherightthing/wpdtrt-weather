@@ -12,8 +12,8 @@
  * Domain Path:  /languages
  */
 
-//require_once(WPDTRT_WEATHER_PATH . 'vendor/wp-darksky/wp-darksky.php');
-//require_once(WPDTRT_WEATHER_PATH . 'vendor/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+//require_once(WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php');
+//require_once(WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 require_once plugin_dir_path( __FILE__ ) . "vendor/autoload.php";
 
 /**
@@ -105,8 +105,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
   require_once(WPDTRT_WEATHER_PATH . 'vendor/dotherightthing/wpdtrt-plugin/index.php');
 
   // classes without composer.json files are loaded via Bower
-  require_once(WPDTRT_WEATHER_PATH . 'vendor/wp-darksky/wp-darksky.php');
-  require_once(WPDTRT_WEATHER_PATH . 'vendor/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+  require_once(WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php');
+  require_once(WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 
   // sub classes
   require_once(WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-plugin.php');

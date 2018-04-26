@@ -1,7 +1,7 @@
 {
-	"name": "dotherightthing/wpdtrt-weather",
-	"description": "Displays historical weather information for the GPS location determined by the Featured Image.",
-	"type": "library",
+    "name": "dotherightthing/wpdtrt-weather",
+    "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
+    "type": "library",
     "keywords": ["weather", "forecast", "GPS"],
     "license": "ISC",
     "authors": [

@@ -6,7 +6,7 @@
 // @since       0.7.6
 //
 
-@import "vendor/dotherightthing/wpdtrt-plugin/node_modules/include-media/dist/_include-media";
+@import "node_modules/include-media/dist/_include-media";
 
 // -------------------------------------------------------------------
 // Breakpoints
@@ -43,4 +43,4 @@ $wpdtrt-weather-text-color: rgba(51, 51, 51, 1);
 // Paths
 // -------------------------------------------------------------------
 
-$wi-path: "../vendor/weather-icons/font";
+$wi-path: "../node_modules/weather-icons/font";
