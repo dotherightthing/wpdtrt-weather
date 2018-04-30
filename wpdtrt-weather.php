@@ -212,9 +212,9 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
           array(
             'name'          => 'DTRT EXIF',
             'slug'          => 'wpdtrt-exif',
-            'source'        => 'https://github.com/dotherightthing/wpdtrt-exif/archive/master.zip',
-            'required'      => true,
-            'is_callable'   => 'wpdtrt_exif_get_attachment_metadata_gps'
+            'source'        => 'https://github.com/dotherightthing/wpdtrt-contentsections/releases/download/0.1.0/release.zip',
+            'version'       => '0.1.0',
+            'required'      => true
           )
         ),
         'demo_shortcode_params' => null

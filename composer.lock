@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e166e3b55286d47206c0fd9823ded432",
+    "content-hash": "dd3418326dc66b194b819c09de11b012",
     "packages": [
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -61,16 +61,16 @@
         },
         {
             "name": "dotherightthing/wpdtrt-exif",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
-                "reference": "2fbbe9328ed9a67e1c0a057a11e2a1793f59e0e6"
+                "reference": "1a1ce6d30095344cbacbb57773fdc34ac17df868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/2fbbe9328ed9a67e1c0a057a11e2a1793f59e0e6",
-                "reference": "2fbbe9328ed9a67e1c0a057a11e2a1793f59e0e6",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/1a1ce6d30095344cbacbb57773fdc34ac17df868",
+                "reference": "1a1ce6d30095344cbacbb57773fdc34ac17df868",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -104,22 +104,22 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/master"
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.0"
             },
-            "time": "2018-04-23 06:40:53"
+            "time": "2018-04-30T01:54:39+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin",
-            "version": "1.2.30",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-plugin.git",
-                "reference": "c4f9eaa86cd5bbbd4a829ab3a72c1eb78eede1d2"
+                "reference": "8a52cc784881ac641d8f2934f39045477a83f66b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin/zipball/c4f9eaa86cd5bbbd4a829ab3a72c1eb78eede1d2",
-                "reference": "c4f9eaa86cd5bbbd4a829ab3a72c1eb78eede1d2",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin/zipball/8a52cc784881ac641d8f2934f39045477a83f66b",
+                "reference": "8a52cc784881ac641d8f2934f39045477a83f66b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -170,9 +170,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-tourdates/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-plugin/tree/1.2.30"
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin/tree/1.3.1"
             },
-            "time": "2018-04-27T01:28:53+00:00"
+            "time": "2018-04-30T01:29:02+00:00"
         },
         {
             "name": "gamajo/template-loader",
@@ -227,9 +227,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "dotherightthing/wpdtrt-exif": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

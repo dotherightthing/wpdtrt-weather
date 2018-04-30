@@ -18,7 +18,7 @@
     },
     "require": {
         "dotherightthing/wpdtrt-plugin": "^1.0.0",
-        "dotherightthing/wpdtrt-exif": "dev-master"
+        "dotherightthing/wpdtrt-exif": "^0.1.0"
     },
     "minimum-stability": "stable",
     "repositories": [
