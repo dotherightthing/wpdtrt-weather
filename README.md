@@ -11,3 +11,7 @@ Please read [DTRT WP Plugin: Setup and Maintenance](https://github.com/dotherigh
 ## WordPress Installation and Usage
 
 Please read the [WordPress readme.txt](readme.txt).
+
+## Dependencies
+
+1. [DTRT EXIF](https://github.com/dotherightthing/wpdtrt-exif) retrieves the forecast location from the featured image.
