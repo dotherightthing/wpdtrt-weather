@@ -61,16 +61,16 @@
         },
         {
             "name": "dotherightthing/wpdtrt-exif",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
-                "reference": "1a1ce6d30095344cbacbb57773fdc34ac17df868"
+                "reference": "5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/1a1ce6d30095344cbacbb57773fdc34ac17df868",
-                "reference": "1a1ce6d30095344cbacbb57773fdc34ac17df868",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe",
+                "reference": "5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -104,9 +104,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.0"
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.1"
             },
-            "time": "2018-04-30T01:54:39+00:00"
+            "time": "2018-05-05T02:15:03+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin",
