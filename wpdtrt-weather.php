@@ -277,7 +277,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 
     global $wpdtrt_weather_plugin;
 
-    $wpdtrt_weather_shortcode_1 = new DoTheRightThing\WPPlugin\Shortcode(
+    $wpdtrt_weather_shortcode_1 = new DoTheRightThing\WPPlugin\r_1_4_0\Shortcode(
       array(
         'name' => 'wpdtrt_weather_shortcode_1',
         'plugin' => $wpdtrt_weather_plugin,
