@@ -218,7 +218,11 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
             'required'      => true
           )
         ),
-        'demo_shortcode_params' => null
+        'demo_shortcode_params' => array(
+          'name' => 'wpdtrt_weather_shortcode_1',
+          'element' => 'p',
+          'number' => 2
+        )
       )
     );
   }
