@@ -61,7 +61,7 @@ Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 * Add SCSS partials for project-specific extends and variables
 * Change tag badge to release badge
 * Fix default .pot file
-* Update wpdtrt-plugin
+* Update wpdtrt-plugin to 1.3.1
 
 = 0.0.1 =
 * Initial version
