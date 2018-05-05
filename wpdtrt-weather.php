@@ -186,6 +186,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
         'prefix' => 'wpdtrt_weather',
         'slug' => 'wpdtrt-weather',
         'menu_title' => __('Weather', 'wpdtrt-weather'),
+        'settings_title' => __('Settings', 'wpdtrt-weather'),
         'developer_prefix' => '',
         'path' => WPDTRT_WEATHER_PATH,
         'messages' => array(
