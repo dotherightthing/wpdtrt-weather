@@ -94,7 +94,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
     /**
      * Request weather data from the API.
-     * This overrides the placeholder method in the parent class.
+     *  This overrides the method in the parent class.
      *
      * @since       0.1.0
      * @version     1.0.0
