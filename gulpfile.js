@@ -8,7 +8,7 @@
  *    gulp dist --gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./
  *
  * @package     WPDTRT_Weather
- * @version 	0.0.4
+ * @version 	0.0.5
  * @since       0.7.5
  */
  

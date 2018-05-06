@@ -16,7 +16,7 @@
  * @version 	0.0.1
  * @since       0.7.5
  */
-class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_5\Plugin {
+class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
 
     /**
      * Hook the plugin in to WordPress
