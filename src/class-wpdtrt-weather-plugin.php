@@ -71,16 +71,20 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_5\Plugin {
      */
     public function get_featured_image_latlng( $post ) {
 
-        if ( ! function_exists('wpdtrt_exif_get_attachment_metadata_gps') ) {
-            //global $debug;
-            //$debug->log( 'wpdtrt_exif_get_attachment_metadata_gps missing, please install required plugins' );
+        if ( ! class_exists('WPDTRT_Exif_Plugin') ) {
             return;
         }
+        else if ( ! method_exists('WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps') ) {
+            return;
+        }
+
+        global $wpdtrt_exif_plugin; // created by wpdtrt-exif.php
 
         $featured_image_id = get_post_thumbnail_id( $post->ID );
 
         $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
-        $attachment_metadata_gps = wpdtrt_exif_get_attachment_metadata_gps( $attachment_metadata, 'number' );
+
+        $attachment_metadata_gps = $wpdtrt_exif_plugin->get_attachment_metadata_gps( $attachment_metadata, 'number', $post );
 
         if ( ! isset( $attachment_metadata_gps['latitude'], $attachment_metadata_gps['longitude'] ) ) {
             return array();
