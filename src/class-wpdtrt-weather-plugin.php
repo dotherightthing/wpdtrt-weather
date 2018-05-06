@@ -128,15 +128,15 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
         }
 
         $plugin_options = $this->get_plugin_options();
-        $data = array();
+
+        // Weather_Icon_Forecast is an object containing arrays
+        $data = (object)[];
 
         // if required data is missing, exit
         if ( key_exists('value', $plugin_options['darksky_api_key']) ) {
             $darksky_api_key = $plugin_options['darksky_api_key']['value'];
         }
         else {
-            //global $debug;
-            //$debug->log('darksky_api_key has no value', true, 'get_api_data()');
             return $data;
         }
 
@@ -144,9 +144,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
         $featured_image_latlng = $this->get_featured_image_latlng( $post );
 
         if ( !isset( $featured_image_latlng['latitude'] ) ) {
-            //global $debug;
-            //$debug->log('No GPS location available for this featured image', true, 'get_api_data');
-            return (object)[];
+            return $data;
         }
 
         $args = array(
@@ -163,6 +161,9 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
 
         //$debug->log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
         $data = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
+
+        // json_decode() expects parameter 1 to be string
+        // $data = json_decode( $data, true );
 
         // Save the data and retrieval time
         $this->set_plugin_data( $data );
