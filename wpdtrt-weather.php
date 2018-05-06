@@ -145,7 +145,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
       'darksky_api_key' => array(
         'type' => 'password',
         'label' => __('Darksky API key', 'wpdtrt-weather'),
-        'tip' => __('Register for a key at https://darksky.net/dev/register', 'wpdtrt-weather')
+        'tip' => __('https://darksky.net/dev/register', 'wpdtrt-weather')
       )
     );
 
