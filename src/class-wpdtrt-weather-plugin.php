@@ -133,6 +133,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_5\Plugin {
             return $data;
         }
 
+        // https://github.com/dotherightthing/wpdtrt-weather/issues/7
         $featured_image_latlng = $this->get_featured_image_latlng( $post );
 
         if ( !isset( $featured_image_latlng['latitude'] ) ) {
