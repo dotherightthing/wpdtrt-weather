@@ -71,11 +71,16 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
      */
     public function get_featured_image_latlng( $post ) {
 
+        $lat_lng = array();
+
         if ( ! class_exists('WPDTRT_Exif_Plugin') ) {
-            return;
+            return $lat_lng;
         }
         else if ( ! method_exists('WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps') ) {
-            return;
+            return $lat_lng;
+        }
+        else if ( !isset( $post ) ) {
+            return $lat_lng;
         }
 
         global $wpdtrt_exif_plugin; // created by wpdtrt-exif.php
@@ -90,10 +95,12 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_6\Plugin {
             return array();
         }
 
-        return array(
+        $lat_lng = array(
             'latitude' => $attachment_metadata_gps['latitude'],
             'longitude' => $attachment_metadata_gps['longitude'],
         );
+
+        return $lat_lng;
     }
 
     /**
