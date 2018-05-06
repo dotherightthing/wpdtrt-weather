@@ -6,7 +6,7 @@ Tags: weather, forecast, GPS
 Requires at least: 4.9.5
 Tested up to: 4.9.5
 Requires PHP: 5.6.30
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,16 @@ Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
+
+= 0.0.3 =
+* Shorten Darksky API field hint
+* Fix demo shortcode syntax
+* Use latest version of wpdtrt-exif and load as a test dependency
+* Remove debugging code
+* Check for array key rather than key value
+* Update old release notes
+* Use gulp bump to update version numbers from package.json
+* Update wpdtrt-plugin to 1.4.5
 
 = 0.0.2 =
 * Migrate image quality settings from wpdtrt
