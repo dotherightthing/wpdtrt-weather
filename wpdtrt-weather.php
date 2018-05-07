@@ -14,7 +14,19 @@
 
 //require_once(WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php');
 //require_once(WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
-require_once plugin_dir_path( __FILE__ ) . "vendor/autoload.php";
+
+/**
+ * Autoload namespaced package classes
+ * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-WordPress-plugin-dependencies
+ */
+if ( defined( 'WPDTRT_WEATHER_TEST_DEPENDENCY' ) ) {
+  $projectRootPath = realpath(__DIR__ . '/../../..') . '/';
+}
+else {
+  $projectRootPath = '';
+}
+
+require_once $projectRootPath . "vendor/autoload.php";
 
 /**
  * Constants
@@ -102,7 +114,7 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
 
   // base class
   // redundant, but includes the composer-generated autoload file if not already included
-  require_once(WPDTRT_WEATHER_PATH . 'vendor/dotherightthing/wpdtrt-plugin/index.php');
+  require_once($projectRootPath . 'vendor/dotherightthing/wpdtrt-plugin/index.php');
 
   // classes without composer.json files are loaded via Bower
   require_once(WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php');
