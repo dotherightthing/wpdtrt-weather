@@ -185,7 +185,7 @@ class wpdtrt_weatherTest extends WP_UnitTestCase {
 
         $this->assertEquals( 'password', $data['darksky_api_key']['type'] );
         $this->assertEquals( 'Darksky API key', $data['darksky_api_key']['label'] );
-        $this->assertEquals( 'Register for a key at https://darksky.net/dev/register', $data['darksky_api_key']['tip'] );
+        $this->assertEquals( 'https://darksky.net/dev/register', $data['darksky_api_key']['tip'] );
         // value is not set until the user enters data into settings
         // we stub a value in later tests
         $this->assertTrue( !isset( $data['darksky_api_key']['value'] ) );
