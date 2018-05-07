@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "wpdtrt-weather",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
   "main": "wpdtrt-weather.php",
   "person": {
