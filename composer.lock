@@ -60,55 +60,6 @@
             "time": "2018-03-22T09:48:20+00:00"
         },
         {
-            "name": "dotherightthing/wpdtrt-exif",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
-                "reference": "5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe",
-                "reference": "5dd4b9abd18d47b4c71a78e2f7341e121b1dcabe",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://repo.packagist.com/dotherightthing/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "dotherightthing/wpdtrt-plugin": "^1.0.0"
-            },
-            "type": "library",
-            "notification-url": "https://repo.packagist.com/dotherightthing/downloads/",
-            "license": [
-                "ISC"
-            ],
-            "authors": [
-                {
-                    "name": "Dan Smith",
-                    "email": "dev@dotherightthing.co.nz",
-                    "homepage": "https://github.com/dotherightthing/wpdtrt-exif",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Adds EXIF (time and geotag) fields to the attachment media modal, for use by other plugins.",
-            "keywords": [
-                "attachment",
-                "exif",
-                "geotag"
-            ],
-            "support": {
-                "email": "support@dotherightthing.co.nz",
-                "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.1"
-            },
-            "time": "2018-05-05T02:15:03+00:00"
-        },
-        {
             "name": "dotherightthing/wpdtrt-plugin",
             "version": "1.4.6",
             "source": {
