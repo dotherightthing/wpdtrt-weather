@@ -225,8 +225,8 @@ if( ! defined( 'WPDTRT_WEATHER_URL' ) ) {
           array(
             'name'          => 'DTRT EXIF',
             'slug'          => 'wpdtrt-exif',
-            'source'        => 'https://github.com/dotherightthing/wpdtrt-exif/releases/download/0.1.1/release.zip',
-            'version'       => '0.1.1',
+            'source'        => 'https://github.com/dotherightthing/wpdtrt-exif/releases/download/0.1.5/release.zip',
+            'version'       => '0.1.5',
             'required'      => true
           )
         ),
