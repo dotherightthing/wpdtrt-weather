@@ -3,8 +3,8 @@
  * Unit tests, using PHPUnit, wp-cli, WP_UnitTestCase
  *
  * The plugin is 'active' within a WP test environment
- * 	so the plugin class has already been instantiated
- * 	with the options set in wpdtrt-gallery.php
+ * so the plugin class has already been instantiated
+ * with the options set in wpdtrt-gallery.php
  *
  * Only function names prepended with test_ are run.
  * $debug logs are output with the test output in Terminal
@@ -28,9 +28,9 @@
  */
 class WPDTRT_WeatherTest extends WP_UnitTestCase {
 
-    /**
-     * ===== Mock Objects =====
-     */
+	/**
+	 * ===== Mock Objects =====
+	 */
 
 	/**
 	 * Create a test page and attach a test attachment, which contains GPS data
@@ -64,9 +64,9 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		$wpdtrt_weather_plugin->set_plugin_options( $plugin_options );
 	}
 
-    /**
-     * ===== Assertions =====
-     */
+	/**
+	 * ===== Assertions =====
+	 */
 
 	/**
 	 * Compare two HTML fragments.
@@ -77,8 +77,8 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	 * @uses https://stackoverflow.com/a/26727310/6850747
 	 */
 	protected function assertEqualHtml( $expected, $actual, $error_message ) {
-		$from = ['/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s', '/> </s'];
-		$to   = ['>', '<', '\\1', '><'];
+		$from = [ '/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s', '/> </s' ];
+		$to   = [ '>', '<', '\\1', '><' ];
 		$this->assertEquals(
 			preg_replace( $from, $to, $expected ),
 			preg_replace( $from, $to, $actual ),
@@ -136,7 +136,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 			'post_date'    => $post_date,
 			'post_content' => $post_content,
 			'post_type'    => 'post',
-			'post_status'  => 'publish'
+			'post_status'  => 'publish',
 		]);
 
 		return $post_id;
@@ -159,14 +159,14 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		//global $post; // doesn't work to pass mock post from test_get_featured_image_latlng
 
 		$this->mock_api_key();
-		$post = $this->mock_post_with_featured_image('MDM_20151206_155919_20151206_1559_Outer_Mongolia.jpg'); // post:5, attachment:6
+		$post = $this->mock_post_with_featured_image( 'MDM_20151206_155919_20151206_1559_Outer_Mongolia.jpg' ); // post:5, attachment:6
 		$data = $wpdtrt_weather_plugin->get_api_data( $post );
 
 		// cast data object to an array
-		$data_arr = (array)$data;
+		$data_arr = (array) $data;
 
 		// test that object is not empty
-		$this->assertTrue( !empty($data_arr) );
+		$this->assertTrue( ! empty( $data_arr ) );
 	}
 
 	/**
@@ -191,7 +191,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		$this->assertEquals( 'https://darksky.net/dev/register', $data['darksky_api_key']['tip'] );
 		// value is not set until the user enters data into settings
 		// we stub a value in later tests
-		$this->assertTrue( !isset( $data['darksky_api_key']['value'] ) );
+		$this->assertTrue( ! isset( $data['darksky_api_key']['value'] ) );
 	}
 
 	/**
@@ -202,7 +202,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		global $debug, $wpdtrt_weather_plugin;
 		//global $post; // doesn't work to pass mock post to test_get_api_data
 
-		$post = $this->mock_post_with_featured_image('23465055912_ce8ff02e9f_o_Saihan_Tal.jpg'); // post:3, attachment:4
+		$post = $this->mock_post_with_featured_image( '23465055912_ce8ff02e9f_o_Saihan_Tal.jpg' ); // post:3, attachment:4
 		$data = $wpdtrt_weather_plugin->get_featured_image_latlng( $post );
 		//$debug->log( $post->ID ); // 3
 
@@ -210,5 +210,5 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		$this->assertTrue( is_array( $data ) );
 		$this->assertArrayHasKey( 'latitude', $data );
 		$this->assertArrayHasKey( 'longitude', $data );
-    }
+	}
 }

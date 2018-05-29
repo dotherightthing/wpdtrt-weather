@@ -44,13 +44,13 @@ $unit    = $plugin->get_api_day_unit();
 echo $before_widget;
 echo $before_title . $title . $after_title;
 
-if ( isset( $min, $max ) ):
+if ( isset( $min, $max ) ) :
 ?>
 
 <<?php echo $element; ?> title="<?php echo $summary; ?>" class="wpdtrt-weather">
 	<span class="wpdtrt-weather--icon"><?php echo $icon; ?></span>
 	<span class="wpdtrt-weather--summary"><?php echo $summary; ?></span>
-	<?php if ( $max > $min ): ?>
+	<?php if ( $max > $min ) : ?>
 	<span class="wpdtrt-weather--min"><?php echo $min; ?></span>
 	<span class="wpdtrt-weather--range"> / </span>
 	<span class="wpdtrt-weather--max"><?php echo $max; ?></span>

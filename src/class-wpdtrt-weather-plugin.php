@@ -66,7 +66,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 * @uses        https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
 	 * @uses        https://github.com/erikflowers/weather-icons
 	*/
-	public function get_api_data( $test_post=null ) {
+	public function get_api_data( $test_post = null ) {
 
 		global $post;
 
@@ -77,10 +77,10 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		$plugin_options = $this->get_plugin_options();
 
 		// Weather_Icon_Forecast is an object containing arrays
-		$data = (object)[];
+		$data = (object) [];
 
 		// if required data is missing, exit
-		if ( key_exists('value', $plugin_options['darksky_api_key']) ) {
+		if ( key_exists( 'value', $plugin_options['darksky_api_key'] ) ) {
 			$darksky_api_key = $plugin_options['darksky_api_key']['value'];
 		} else {
 			return $data;
@@ -89,7 +89,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		// https://github.com/dotherightthing/wpdtrt-weather/issues/7
 		$featured_image_latlng = $this->get_featured_image_latlng( $post );
 
-		if ( !isset( $featured_image_latlng['latitude'] ) ) {
+		if ( ! isset( $featured_image_latlng['latitude'] ) ) {
 			return $data;
 		}
 
@@ -97,12 +97,12 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 			'api_key'       => $darksky_api_key,
 			'latitude'      => $featured_image_latlng['latitude'],
 			'longitude'     => $featured_image_latlng['longitude'],
-			'time'          => get_the_date('U'), // the date the post was written
+			'time'          => get_the_date( 'U' ), // the date the post was written
 			'cache_enabled' => ( WP_DEBUG === true ) ? false : true,
 			'query'         => array(
 				'units'   => 'si', // metric - French Système International d'Unités
-				'exclude' => 'flags'
-			)
+				'exclude' => 'flags',
+			),
 		);
 
 		//$debug->log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
@@ -114,7 +114,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		// Save the data and retrieval time
 		$this->set_plugin_data( $data );
 		$this->set_plugin_data_options( array(
-			'last_updated' => time()
+			'last_updated' => time(),
 		));
 
 		return $data;
@@ -248,11 +248,9 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 
 		if ( ! class_exists( 'WPDTRT_Exif_Plugin' ) ) {
 			return $lat_lng;
-		}
-		elseif ( ! method_exists( 'WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps' ) ) {
+		} elseif ( ! method_exists( 'WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps' ) ) {
 			return $lat_lng;
-		}
-		elseif ( ! isset( $post ) ) {
+		} elseif ( ! isset( $post ) ) {
 			return $lat_lng;
 		}
 
@@ -267,7 +265,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		}
 
 		$lat_lng = array(
-			'latitude' => $attachment_metadata_gps['latitude'],
+			'latitude'  => $attachment_metadata_gps['latitude'],
 			'longitude' => $attachment_metadata_gps['longitude'],
 		);
 

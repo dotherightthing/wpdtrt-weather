@@ -98,8 +98,8 @@ if ( defined( 'WPDTRT_WEATHER_TEST_DEPENDENCY' ) ) {
 require_once $project_root_path . 'vendor/autoload.php';
 
 // classes without composer.json files are loaded via Yarn
-require_once(WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php');
-require_once(WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+require_once WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php';
+require_once WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php';
 
 // sub classes, not loaded via PSR-4.
 // remove the includes you don't need, edit the files you do need.
@@ -198,21 +198,21 @@ function wpdtrt_weather_plugin_init() {
 			'type'    => 'select',
 			'label'   => __( 'Element', 'wpdtrt-weather' ),
 			'options' => array(
-				'dd' => array(
-					'text' => __( 'Definition list item (dd)', 'wpdtrt-weather' )
+				'dd'   => array(
+					'text' => __( 'Definition list item (dd)', 'wpdtrt-weather' ),
 				),
-				'li' => array(
-					'text' => __( 'List item (li)', 'wpdtrt-weather' )
+				'li'   => array(
+					'text' => __( 'List item (li)', 'wpdtrt-weather' ),
 				),
-				'p' => array(
-					'text' => __( 'Paragraph (p)', 'wpdtrt-weather' )
+				'p'    => array(
+					'text' => __( 'Paragraph (p)', 'wpdtrt-weather' ),
 				),
 				'span' => array(
-					'text' => __( 'Span (span)', 'wpdtrt-weather' )
+					'text' => __( 'Span (span)', 'wpdtrt-weather' ),
 				),
 			),
-			'tip' => __( 'Wrapping HTML element', 'wpdtrt-weather' )
-		)
+			'tip'     => __( 'Wrapping HTML element', 'wpdtrt-weather' ),
+		),
 	);
 
 	/**
@@ -222,12 +222,12 @@ function wpdtrt_weather_plugin_init() {
 	 */
 	$plugin_dependencies = array(
 		array(
-			'name'          => 'DTRT EXIF',
-			'slug'          => 'wpdtrt-exif',
-			'source'        => 'https://github.com/dotherightthing/wpdtrt-exif/releases/download/0.1.7/release.zip',
-			'version'       => '0.1.7',
-			'required'      => true
-		)
+			'name'     => 'DTRT EXIF',
+			'slug'     => 'wpdtrt-exif',
+			'source'   => 'https://github.com/dotherightthing/wpdtrt-exif/releases/download/0.1.7/release.zip',
+			'version'  => '0.1.7',
+			'required' => true,
+		),
 	);
 
 	/**
@@ -259,7 +259,7 @@ function wpdtrt_weather_plugin_init() {
 	$demo_shortcode_params = array(
 		'name'    => 'wpdtrt_weather_shortcode',
 		'element' => 'p',
-		'number'  => 2
+		'number'  => 2,
 	);
 
 	/**
@@ -318,7 +318,7 @@ function wpdtrt_weather_shortcode_init() {
 			'template'                  => 'weather',
 			'selected_instance_options' => array(
 				'element',
-			)
+			),
 		)
 	);
 }
@@ -374,7 +374,7 @@ function wpdtrt_weather_widget_init() {
 			'template'                  => 'weather',
 			'selected_instance_options' => array(
 				'element',
-			)
+			),
 		)
 	);
 
