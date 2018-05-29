@@ -24,7 +24,7 @@ require_once $_tests_dir . '/includes/functions.php';
 function _manually_load_plugin() {
 	require dirname( dirname( __FILE__ ) ) . '/wpdtrt-weather.php';
 
-	if ( !defined( 'WPDTRT_EXIF_TEST_DEPENDENCY' ) ) {
+	if ( ! defined( 'WPDTRT_EXIF_TEST_DEPENDENCY' ) ) {
 		define( 'WPDTRT_EXIF_TEST_DEPENDENCY', true );
 	}
 	require dirname( dirname( __FILE__ ) ) . '/vendor/dotherightthing/wpdtrt-exif/wpdtrt-exif.php';

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd3418326dc66b194b819c09de11b012",
+    "content-hash": "7b3258b288607db2bce856d745590c7d",
     "packages": [
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -60,17 +60,17 @@
             "time": "2018-03-22T09:48:20+00:00"
         },
         {
-            "name": "dotherightthing/wpdtrt-plugin",
-            "version": "1.4.15",
+            "name": "dotherightthing/wpdtrt-plugin-boilerplate",
+            "version": "1.4.22",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dotherightthing/wpdtrt-plugin.git",
-                "reference": "17e74be066c6967668d322abfe84a20f7e1a8472"
+                "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
+                "reference": "b17bb71ebab272c258c854aa5295ddf72b421a79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin/zipball/17e74be066c6967668d322abfe84a20f7e1a8472",
-                "reference": "17e74be066c6967668d322abfe84a20f7e1a8472",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/b17bb71ebab272c258c854aa5295ddf72b421a79",
+                "reference": "b17bb71ebab272c258c854aa5295ddf72b421a79",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -98,7 +98,7 @@
             ],
             "autoload": {
                 "psr-4": {
-                    "DoTheRightThing\\WPPlugin\\r_1_4_15\\": "src"
+                    "DoTheRightThing\\WPDTRT_Plugin_Boilerplate\\r_1_4_22\\": "src"
                 }
             },
             "notification-url": "https://repo.packagist.com/dotherightthing/downloads/",
@@ -113,7 +113,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Base classes for a plugin, plugin shortcode, and plugin widget.",
+            "description": "Boilerplate for WordPress plugin development.",
             "keywords": [
                 "boilerplate",
                 "framework"
@@ -121,9 +121,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-tourdates/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-plugin/tree/1.4.15"
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/1.4.22"
             },
-            "time": "2018-05-11T00:47:44+00:00"
+            "time": "2018-05-21T23:43:01+00:00"
         },
         {
             "name": "gamajo/template-loader",
@@ -175,11 +175,101 @@
             "time": "2017-03-24T17:28:34+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "dotherightthing/wpdtrt-exif",
+            "version": "0.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
+                "reference": "1e04fcd3ddc12cc4c9953afe18a47b9a07b69583"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/1e04fcd3ddc12cc4c9953afe18a47b9a07b69583",
+                "reference": "1e04fcd3ddc12cc4c9953afe18a47b9a07b69583",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/dotherightthing/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "dotherightthing/wpdtrt-plugin-boilerplate": "^1.0.0",
+                "prairiewest/phpconvertdmstodecimal": "dev-master"
+            },
+            "type": "library",
+            "notification-url": "https://repo.packagist.com/dotherightthing/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "https://github.com/dotherightthing/wpdtrt-exif",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds EXIF (time and geotag) fields to the attachment media modal, for use by other plugins.",
+            "keywords": [
+                "attachment",
+                "exif",
+                "geotag"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.7"
+            },
+            "time": "2018-05-28T12:38:57+00:00"
+        },
+        {
+            "name": "prairiewest/PHPconvertDMSToDecimal",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prairiewest/PHPconvertDMSToDecimal.git",
+                "reference": "b2b5ccd2fb3fb3092fe32e8a3f1bf5058cad1e25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prairiewest/PHPconvertDMSToDecimal/zipball/b2b5ccd2fb3fb3092fe32e8a3f1bf5058cad1e25",
+                "reference": "b2b5ccd2fb3fb3092fe32e8a3f1bf5058cad1e25",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/dotherightthing/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "convert.php"
+                ]
+            },
+            "notification-url": "https://repo.packagist.com/dotherightthing/downloads/",
+            "authors": [
+                {
+                    "name": "Todd Trann"
+                }
+            ],
+            "description": " Convert degrees / minutes / seconds to decimal degrees in PHP ",
+            "support": {
+                "source": "https://github.com/prairiewest/PHPconvertDMSToDecimal/tree/master",
+                "issues": "https://github.com/prairiewest/PHPconvertDMSToDecimal/issues"
+            },
+            "time": "2017-07-18 05:12:23"
+        }
+    ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "wpdtrt-weather",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
   "main": "wpdtrt-weather.php",
   "person": {
@@ -13,7 +13,7 @@
     "gulp": "^3.9.1"
   },
   "workspaces": [
-    "vendor/dotherightthing/wpdtrt-plugin/"
+    "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,8 +30,8 @@
   "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather",
   "dependencies": {
-    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0",
     "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
-    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10"
+    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10",
+    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0"
   }
 }

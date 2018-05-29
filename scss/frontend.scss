@@ -6,8 +6,8 @@
 // @since       0.7.5
 //
 
-@import "vendor/dotherightthing/wpdtrt-plugin/scss/_variables.scss";
-@import "vendor/dotherightthing/wpdtrt-plugin/scss/_extends.scss";
+@import "vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/_variables.scss";
+@import "vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/_extends.scss";
 @import "variables";
 @import "extends";
 @import "node_modules/weather-icons/sass/weather-icons.scss";
@@ -26,7 +26,7 @@
 	border-radius: 4px;
 
 	&--summary {
-		@extend .wpdtrt-plugin-screen-reader-text;
+		@extend .wpdtrt-plugin-boilerplate-screen-reader-text;
 	}
 
 	&--icon {

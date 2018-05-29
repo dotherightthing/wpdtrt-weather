@@ -2,304 +2,287 @@
 /**
  * Plugin sub class.
  *
- * @package     wpdtrt_weather
- * @version 	0.0.1
- * @since       0.7.5
+ * @package WPDTRT_Weather
+ * @since   0.7.17 DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Plugin sub class.
- *
- * Extends the base class to inherit boilerplate functionality.
+ * Extend the base class to inherit boilerplate functionality.
  * Adds application-specific methods.
  *
- * @version 	0.0.1
- * @since       0.7.5
+ * @since   1.0.0
  */
-class WPDTRT_Weather_Plugin extends DoTheRightThing\WPPlugin\r_1_4_15\Plugin {
+class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_1_4_22\Plugin {
 
-    /**
-     * Hook the plugin in to WordPress
-     * This constructor automatically initialises the object's properties
-     * when it is instantiated,
-     * using new WPDTRT_Weather_Plugin
-     *
-     * @param     array $settings Plugin options
-     *
-	 * @version 	0.0.1
-     * @since       0.7.5
-     */
-    function __construct( $settings ) {
+	/**
+	 * Supplement plugin initialisation.
+	 *
+	 * @param     array $options Plugin options.
+	 * @since     1.0.0
+	 * @version   1.1.0
+	 */
+	function __construct( $options ) {
 
-    	// add any initialisation specific to wpdtrt-weather here
+		// edit here.
 
-		// Instantiate the parent object
-		parent::__construct( $settings );
-    }
+		parent::__construct( $options );
+	}
 
-    //// START WORDPRESS INTEGRATION \\\\
+	/**
+	 * ====== WordPress Integration ======
+	 */
 
-    /**
-     * Initialise plugin options ONCE.
-     *
-     * @param array $default_options
-     *
-     * @version     0.0.1
-     * @since       0.7.5
-     */
-    protected function wp_setup() {
+	/**
+	 * Supplement plugin's WordPress setup.
+	 * Note: Default priority is 10. A higher priority runs later.
+	 *
+	 * @see https://codex.wordpress.org/Plugin_API/Action_Reference Action order
+	 */
+	protected function wp_setup() {
 
-    	parent::wp_setup();
+		// edit here.
+
+		parent::wp_setup();
 
 		// add actions and filters here
-    }
+	}
 
-    //// END WORDPRESS INTEGRATION \\\\
+	/**
+	 * ====== Getters and Setters ======
+	 */
 
-    //// START SETTERS AND GETTERS \\\\
+	/**
+	 * Request weather data from the API.
+	 *  This overrides the method in the parent class.
+	 *
+	 * @since       0.1.0
+	 * @version     1.0.0
+	 * @param       object $test_post Optional $post object for unit testing
+	 * @return      object $data A Darksky forecast object ($min, $max, $icon, $alt, $unit)
+	 * @see         https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
+	 * @uses        ../../../../wp-includes/http.php
+	 * @uses        https://darksky.net/dev/docs/time-machine
+	 * @uses        https://github.com/joshuadavidnelson/wp-darksky
+	 * @uses        https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
+	 * @uses        https://github.com/erikflowers/weather-icons
+	*/
+	public function get_api_data( $test_post=null ) {
 
-    /**
-     * Get the latitude and longitude from a post's/page's featured image.
-     *  to obtain a historical forecast for this location.
-     *
-     * @since       0.1.0
-     * @version     1.0.0
-     * @param       object $post
-     * @return      array ('latitude', 'longitude')
-     *
-     * @uses https://github.com/dotherightthing/wpdtrt-exif
-     */
-    public function get_featured_image_latlng( $post ) {
+		global $post;
 
-        $lat_lng = array();
+		if ( isset( $test_post ) ) {
+			$post = $test_post;
+		}
 
-        if ( ! class_exists('WPDTRT_Exif_Plugin') ) {
-            return $lat_lng;
-        }
-        else if ( ! method_exists('WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps') ) {
-            return $lat_lng;
-        }
-        else if ( !isset( $post ) ) {
-            return $lat_lng;
-        }
+		$plugin_options = $this->get_plugin_options();
 
-        global $wpdtrt_exif_plugin; // created by wpdtrt-exif.php
+		// Weather_Icon_Forecast is an object containing arrays
+		$data = (object)[];
 
-        $featured_image_id = get_post_thumbnail_id( $post->ID );
+		// if required data is missing, exit
+		if ( key_exists('value', $plugin_options['darksky_api_key']) ) {
+			$darksky_api_key = $plugin_options['darksky_api_key']['value'];
+		} else {
+			return $data;
+		}
 
-        $attachment_metadata = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
+		// https://github.com/dotherightthing/wpdtrt-weather/issues/7
+		$featured_image_latlng = $this->get_featured_image_latlng( $post );
 
-        $attachment_metadata_gps = $wpdtrt_exif_plugin->get_attachment_metadata_gps( $attachment_metadata, 'number', $post );
+		if ( !isset( $featured_image_latlng['latitude'] ) ) {
+			return $data;
+		}
 
-        if ( ! isset( $attachment_metadata_gps['latitude'], $attachment_metadata_gps['longitude'] ) ) {
-            return array();
-        }
+		$args = array(
+			'api_key'       => $darksky_api_key,
+			'latitude'      => $featured_image_latlng['latitude'],
+			'longitude'     => $featured_image_latlng['longitude'],
+			'time'          => get_the_date('U'), // the date the post was written
+			'cache_enabled' => ( WP_DEBUG === true ) ? false : true,
+			'query'         => array(
+				'units'   => 'si', // metric - French Système International d'Unités
+				'exclude' => 'flags'
+			)
+		);
 
-        $lat_lng = array(
-            'latitude' => $attachment_metadata_gps['latitude'],
-            'longitude' => $attachment_metadata_gps['longitude'],
-        );
+		//$debug->log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
+		$data = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
 
-        return $lat_lng;
-    }
+		// json_decode() expects parameter 1 to be string
+		// $data = json_decode( $data, true );
 
-    /**
-     * Request weather data from the API.
-     *  This overrides the method in the parent class.
-     *
-     * @since       0.1.0
-     * @version     1.0.0
-     * @param       object $test_post Optional $post object for unit testing
-     * @return      object $data A Darksky forecast object ($min, $max, $icon, $alt, $unit)
-     *
-     * @see         https://stackoverflow.com/questions/3200984/where-can-i-find-historical-raw-weather-data
-     * @uses        ../../../../wp-includes/http.php
-     * @uses        https://darksky.net/dev/docs/time-machine
-     * @uses        https://github.com/joshuadavidnelson/wp-darksky
-     * @uses        https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c
-     * @uses        https://github.com/erikflowers/weather-icons
-     */
-    public function get_api_data( $test_post=null ) {
+		// Save the data and retrieval time
+		$this->set_plugin_data( $data );
+		$this->set_plugin_data_options( array(
+			'last_updated' => time()
+		));
 
-        global $post;
+		return $data;
+	}
 
-        if ( isset( $test_post ) ) {
-            $post = $test_post;
-        }
+	/**
+	 * Get the forecast day from an API call
+	 *
+	 * @return       mixed The day object | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day() {
+		$plugin_data = $this->get_plugin_data();
+		$day         = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
 
-        $plugin_options = $this->get_plugin_options();
+		return $day;
+	}
 
-        // Weather_Icon_Forecast is an object containing arrays
-        $data = (object)[];
+	/**
+	 * Get the forecast icon from an API call
+	 *
+	 * @return       mixed Weather icon | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day_icon() {
+		$day  = $this->get_api_day();
+		$data = $this->get_plugin_data();
+		$icon = null;
 
-        // if required data is missing, exit
-        if ( key_exists('value', $plugin_options['darksky_api_key']) ) {
-            $darksky_api_key = $plugin_options['darksky_api_key']['value'];
-        }
-        else {
-            return $data;
-        }
+		if ( $day ) {
+			$icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
 
-        // https://github.com/dotherightthing/wpdtrt-weather/issues/7
-        $featured_image_latlng = $this->get_featured_image_latlng( $post );
+			if ( isset( $icon_data ) ) {
+				// call DarkSky\Weather_Icon_Forecast methid get_icon()
+				$icon = $data->get_icon( $icon_data );
+			}
+		}
 
-        if ( !isset( $featured_image_latlng['latitude'] ) ) {
-            return $data;
-        }
+		return $icon;
+	}
 
-        $args = array(
-          'api_key'       => $darksky_api_key,
-          'latitude'      => $featured_image_latlng['latitude'],
-          'longitude'     => $featured_image_latlng['longitude'],
-          'time'          => get_the_date('U'), // the date the post was written
-          'cache_enabled' => ( WP_DEBUG === true ) ? false : true,
-          'query'         => array(
-            'units'       => 'si', // metric - French Système International d'Unités
-            'exclude'     => 'flags'
-          )
-        );
+	/**
+	 * Get the forecast maximum from an API call
+	 *
+	 * @return       mixed Maximum temperature | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day_max() {
+		$day = $this->get_api_day();
+		$max = null;
 
-        //$debug->log('https://api.darksky.net/forecast/' . $args['api_key'] . '/' . $args['latitude'] . ',' . $args['longitude'] . ',' . $args['time']);
-        $data = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
+		if ( $day ) {
+			$max = isset( $day['temperatureMax'] ) ? intval( $day['temperatureMax'] ) : null;
+		}
 
-        // json_decode() expects parameter 1 to be string
-        // $data = json_decode( $data, true );
+		return $max;
+	}
 
-        // Save the data and retrieval time
-        $this->set_plugin_data( $data );
-        $this->set_plugin_data_options( array(
-            'last_updated' => time()
-        ) );
+	/**
+	 * Get the forecast minimum from an API call
+	 *
+	 * @return       mixed Minimum temperature | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day_min() {
+		$day = $this->get_api_day();
+		$min = null;
 
-        return $data;
-    }
+		if ( $day ) {
+			$min = isset( $day['temperatureMin'] ) ? intval( $day['temperatureMin'] ) : null;
+		}
 
-    /**
-     * Get the forecast day from an API call
-     *
-     * @return       mixed The day object | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day() {
-        $plugin_data = $this->get_plugin_data();
-        $day = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
-        return $day;
-    }
+		return $min;
+	}
 
-    /**
-     * Get the forecast minimum from an API call
-     *
-     * @return       mixed Minimum temperature | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day_min() {
-        $day = $this->get_api_day();
-        $min = null;
+	/**
+	 * Get the forecast summary from an API call
+	 *
+	 * @return       mixed Summary | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day_summary() {
+		// get_entry_stats_weather($post_id)[1];
+		$day     = $this->get_api_day();
+		$summary = null;
 
-        if ( $day ) {
-            $min = isset( $day['temperatureMin'] ) ? intval( $day['temperatureMin'] ) : null;
-        }
+		if ( $day ) {
+			$summary = isset( $day['summary'] ) ? esc_attr( $day['summary'] ) : null;
+		}
 
-        return $min;
-    }
+		return $summary;
+	}
 
-    /**
-     * Get the forecast maximum from an API call
-     *
-     * @return       mixed Maximum temperature | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day_max() {
-        $day = $this->get_api_day();
-        $max = null;
+	/**
+	 * Get the forecast temperature unit from an API call
+	 *
+	 * @return       mixed Temperature unit | null
+	 * @since        0.1.0
+	 * @version      1.0.0
+	 */
+	public function get_api_day_unit() {
+		$day  = $this->get_api_day();
+		$unit = null;
 
-        if ( $day ) {
-            $max = isset( $day['temperatureMax'] ) ? intval( $day['temperatureMax'] ) : null;
-        }
+		if ( $day ) {
+			$unit = '&deg;<abbr title="Centigrade">C</abbr>';
+		}
 
-        return $max;
-    }
+		return $unit;
+	}
 
-    /**
-     * Get the forecast summary from an API call
-     *
-     * @return       mixed Summary | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day_summary() {
-        // get_entry_stats_weather($post_id)[1];
-        $day = $this->get_api_day();
-        $summary = null;
+	/**
+	 * Get the latitude and longitude from a post's/page's featured image.
+	 * to obtain a historical forecast for this location.
+	 *
+	 * @since       0.1.0
+	 * @version     1.0.0
+	 * @param       object $post
+	 * @return      array ('latitude', 'longitude')
+	 *
+	 * @uses https://github.com/dotherightthing/wpdtrt-exif
+	 */
+	public function get_featured_image_latlng( $post ) {
 
-        if ( $day ) {
-            $summary = isset( $day['summary'] ) ? esc_attr( $day['summary'] ) : null;
-        }
+		$lat_lng = array();
 
-        return $summary;
-    }
+		if ( ! class_exists( 'WPDTRT_Exif_Plugin' ) ) {
+			return $lat_lng;
+		}
+		elseif ( ! method_exists( 'WPDTRT_Exif_Plugin', 'get_attachment_metadata_gps' ) ) {
+			return $lat_lng;
+		}
+		elseif ( ! isset( $post ) ) {
+			return $lat_lng;
+		}
 
-    /**
-     * Get the forecast icon from an API call
-     *
-     * @return       mixed Weather icon | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day_icon() {
-        $day = $this->get_api_day();
-        $data = $this->get_plugin_data();
-        $icon = null;
+		global $wpdtrt_exif_plugin; // created by wpdtrt-exif.php
 
-        if ( $day ) {
-            $icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
+		$featured_image_id       = get_post_thumbnail_id( $post->ID );
+		$attachment_metadata     = wp_get_attachment_metadata( $featured_image_id, false ); // core meta
+		$attachment_metadata_gps = $wpdtrt_exif_plugin->get_attachment_metadata_gps( $attachment_metadata, 'number', $post );
 
-            if ( isset( $icon_data ) ) {
-                // call DarkSky\Weather_Icon_Forecast methid get_icon()
-                $icon = $data->get_icon( $icon_data );
-            }
-        }
+		if ( ! isset( $attachment_metadata_gps['latitude'], $attachment_metadata_gps['longitude'] ) ) {
+			return array();
+		}
 
-        return $icon;
-    }
+		$lat_lng = array(
+			'latitude' => $attachment_metadata_gps['latitude'],
+			'longitude' => $attachment_metadata_gps['longitude'],
+		);
 
-    /**
-     * Get the forecast temperature unit from an API call
-     *
-     * @return       mixed Temperature unit | null
-     *
-     * @since        0.1.0
-     * @version      1.0.0
-     */
-    public function get_api_day_unit() {
-        $day = $this->get_api_day();
-        $unit = null;
+		return $lat_lng;
+	}
 
-        if ( $day ) {
-            $unit = '&deg;<abbr title="Centigrade">C</abbr>';
-        }
+	/**
+	 * ===== Renderers =====
+	 */
 
-        return $unit;
-    }
+	/**
+	 * ===== Filters =====
+	 */
 
-    //// END SETTERS AND GETTERS \\\\
-
-    //// START RENDERERS \\\\
-    //// END RENDERERS \\\\
-
-    //// START FILTERS \\\\
-    //// END FILTERS \\\\
-
-    //// START HELPERS \\\\
-    //// END HELPERS \\\\
+	/**
+	 * ===== Helpers =====
+	 */
 }
-
-?>
