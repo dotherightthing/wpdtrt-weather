@@ -3,7 +3,7 @@
  * Plugin Name:  DTRT Weather
  * Plugin URI:   https://github.com/dotherightthing/wpdtrt-weather
  * Description:  Displays historical weather information for the GPS location determined by the Featured Image.
- * Version:      0.1.2
+ * Version:      0.1.3
  * Author:       Dan Smith
  * Author URI:   https://profiles.wordpress.org/dotherightthingnz
  * License:      GPLv2 or later
@@ -43,7 +43,7 @@ if ( ! defined( 'WPDTRT_WEATHER_VERSION' ) ) {
 	 * @see $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
 	 * @see https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
 	 */
-	define( 'WPDTRT_WEATHER_VERSION', '0.1.2' );
+	define( 'WPDTRT_WEATHER_VERSION', '0.1.3' );
 }
 
 if ( ! defined( 'WPDTRT_WEATHER_PATH' ) ) {
