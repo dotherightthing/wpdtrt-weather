@@ -198,16 +198,16 @@
     "packages-dev": [
         {
             "name": "dotherightthing/wpdtrt-exif",
-            "version": "0.1.8",
+            "version": "0.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
-                "reference": "aadc907483771f5e0ef74aee8a66d4cf91915e79"
+                "reference": "0211a6c06f80952299121ac1a18fe4fcc2c106ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/aadc907483771f5e0ef74aee8a66d4cf91915e79",
-                "reference": "aadc907483771f5e0ef74aee8a66d4cf91915e79",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/0211a6c06f80952299121ac1a18fe4fcc2c106ec",
+                "reference": "0211a6c06f80952299121ac1a18fe4fcc2c106ec",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -242,9 +242,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.8"
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/master"
             },
-            "time": "2018-05-30T10:34:22+00:00"
+            "time": "2018-06-14T09:14:43+00:00"
         },
         {
             "name": "prairiewest/PHPconvertDMSToDecimal",
