@@ -6,8 +6,8 @@
 // @since       0.7.5
 //
 
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/_variables';
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/_extends';
+@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/variables';
+@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/extends';
 @import 'variables';
 @import 'extends';
 @import 'node_modules/weather-icons/sass/weather-icons';
@@ -17,49 +17,49 @@
 // -------------------------------------------------------------------
 
 .wpdtrt-weather {
-	display: inline-block;
-	background-color: $wpdtrt-weather-bg-color;
-	font-family: sans-serif;
-	font-size: 15px;
-	padding: 11px;
-	border: 1px dotted $wpdtrt-weather-border-color;
-	border-radius: 4px;
+    display: inline-block;
+    background-color: $wpdtrt-weather-bg-color;
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 11px;
+    border: 1px dotted $wpdtrt-weather-border-color;
+    border-radius: 4px;
 
-	&--summary {
-		@extend .wpdtrt-plugin-boilerplate-screen-reader-text;
-	}
+    &--summary {
+        @extend .wpdtrt-plugin-boilerplate-screen-reader-text;
+    }
 
-	&--icon {
-		background-color: $wpdtrt-weather-icon-bg-color;
-		color: $wpdtrt-weather-icon-color;
-		display: inline-block;
-		padding: 11px;
-		border-right: 1px solid $wpdtrt-weather-icon-divider-color;
-		border-radius: 4px 0 0 4px;
-		margin: -11px 11px -11px -11px;
-	}
+    &--icon {
+        display: inline-block;
+        background-color: $wpdtrt-weather-icon-bg-color;
+        color: $wpdtrt-weather-icon-color;
+        padding: 11px;
+        border-right: 1px solid $wpdtrt-weather-icon-divider-color;
+        border-radius: 4px 0 0 4px;
+        margin: -11px 11px -11px -11px;
+    }
 
-	&--min {
-		font-weight: bold;
-		color: $wpdtrt-weather-icon-color--min;
-	}
+    &--min {
+        color: $wpdtrt-weather-icon-color--min;
+        font-weight: bold;
+    }
 
-	&--range {
-		color: $wpdtrt-weather-text-color;
-	}
+    &--range {
+        color: $wpdtrt-weather-text-color;
+    }
 
-	&--max {
-		font-weight: bold;
-		color: $wpdtrt-weather-icon-color--max;
-	}
+    &--max {
+        color: $wpdtrt-weather-icon-color--max;
+        font-weight: bold;
+    }
 
-	&--unit {
-		color: $wpdtrt-weather-text-color;
+    &--unit {
+        color: $wpdtrt-weather-text-color;
 
-		abbr {
-			text-decoration: none;
-		}
-	}
+        abbr {
+            text-decoration: none;
+        }
+    }
 }
 
 // -------------------------------------------------------------------
