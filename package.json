@@ -1,13 +1,33 @@
 {
   "private": true,
   "name": "wpdtrt-weather",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Displays historical weather information for the GPS location determined by the Featured Image.",
   "main": "wpdtrt-weather.php",
   "person": {
     "name": "Dan Smith",
     "email": "dev@dotherightthing.co.nz",
     "url": "https://profiles.wordpress.org/dotherightthingnz"
+  },
+  "contributors": [
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz",
+      "url": "https://profiles.wordpress.org/dotherightthingnz"
+    }
+  ],
+  "bugs": {
+    "url" : "https://github.com/dotherightthing/wpdtrt-weather/issues"
+  },
+  "keywords": [
+    "exif",
+    "geotag",
+    "attachment"
+  ],
+  "dependencies": {
+    "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
+    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10",
+    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
@@ -16,11 +36,16 @@
     "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "install_deps": "gulp install_dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp wpunit_install --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "package": "gulp docs --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "test": "gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp wpunit_run --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "version": "gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "watch": "gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:dotherightthing/wpdtrt-weather.git"
+    "url": "https://github.com/dotherightthing/wpdtrt-weather"
   },
   "browserslist": [
     "last 2 versions",
@@ -28,10 +53,5 @@
   ],
   "license": "ISC",
   "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
-  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather",
-  "dependencies": {
-    "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
-    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10",
-    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0"
-  }
+  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather"
 }
