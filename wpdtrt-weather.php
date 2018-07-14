@@ -97,6 +97,13 @@ if ( defined( 'WPDTRT_WEATHER_TEST_DEPENDENCY' ) ) {
 
 require_once $project_root_path . 'vendor/autoload.php';
 
+if ( is_admin() ) {
+	// This replaces the TGMPA autoloader
+	// @see dotherightthing/generator-wpdtrt-plugin-boilerplate#77
+	// @see dotherightthing/wpdtrt-plugin-boilerplate#136
+	require_once( $project_root_path . 'vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php');
+}
+
 // classes without composer.json files are loaded via Yarn
 require_once WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php';
 require_once WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php';
