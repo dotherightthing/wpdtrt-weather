@@ -26,6 +26,17 @@
         "wp-cli/wp-cli" : "~0.22",
         "dotherightthing/wpdtrt-exif": "^0.1.11"
     },
+    "extras": {
+        "require-wp": [
+            {
+                "name": "DTRT EXIF",
+                "host": "github",
+                "repository": "dotherightthing/wpdtrt-exif",
+                "file": "wpdtrt-exif.php",
+                "description": "Retrieves the forecast location from the featured image"
+            }
+        ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
@@ -48,10 +59,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/prairiewest/PHPconvertDMSToDecimal"
-        },
-        {
-            "type": "composer",
-            "url": "https://wpackagist.org"
         }
     ],
     "config": {

@@ -223,21 +223,6 @@ function wpdtrt_weather_plugin_init() {
 	);
 
 	/**
-	 * Plugin dependencies
-	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies Options: Adding WordPress plugin dependencies
-	 */
-	$plugin_dependencies = array(
-		array(
-			'name'     => 'DTRT EXIF',
-			'slug'     => 'wpdtrt-exif',
-			'source'   => 'https://github.com/dotherightthing/wpdtrt-exif/releases/download/0.1.11/release.zip',
-			'version'  => '0.1.11',
-			'required' => true,
-		),
-	);
-
-	/**
 	 *  UI Messages
 	 */
 	$ui_messages = array(
@@ -285,7 +270,6 @@ function wpdtrt_weather_plugin_init() {
 			'messages'              => $ui_messages,
 			'plugin_options'        => $plugin_options,
 			'instance_options'      => $instance_options,
-			'plugin_dependencies'   => $plugin_dependencies,
 			'demo_shortcode_params' => $demo_shortcode_params,
 		)
 	);
