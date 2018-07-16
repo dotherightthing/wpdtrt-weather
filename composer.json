@@ -17,14 +17,14 @@
         "issues": "https://github.com/dotherightthing/wpdtrt-weather/issues"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.4.38"
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.4.39"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "2.9.0",
         "phpunit/phpunit": "^5.7",
         "psy/psysh" : "~0.6",
         "wp-cli/wp-cli" : "~0.22",
-        "dotherightthing/wpdtrt-exif": "^0.1.11"
+        "dotherightthing/wpdtrt-exif": "^0.1.12"
     },
     "extras": {
         "require-wp": [

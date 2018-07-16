@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35f5e68b762fa4864ed50b11cfa9c8ec",
+    "content-hash": "7ac34cf1fd4f589c1986e6eaef242b93",
     "packages": [
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -54,16 +54,16 @@
         },
         {
             "name": "dotherightthing/wpdtrt-plugin-boilerplate",
-            "version": "1.4.38",
+            "version": "1.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
-                "reference": "e638f0d7b358707a4a3b55a6d83e785c357f84eb"
+                "reference": "872e5f5ae01c15a2385d0cb3e1cfc6dcd96c128f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/e638f0d7b358707a4a3b55a6d83e785c357f84eb",
-                "reference": "e638f0d7b358707a4a3b55a6d83e785c357f84eb",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/872e5f5ae01c15a2385d0cb3e1cfc6dcd96c128f",
+                "reference": "872e5f5ae01c15a2385d0cb3e1cfc6dcd96c128f",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DoTheRightThing\\WPDTRT_Plugin_Boilerplate\\r_1_4_38\\": "src"
+                    "DoTheRightThing\\WPDTRT_Plugin_Boilerplate\\r_1_4_39\\": "src"
                 }
             },
             "license": [
@@ -103,9 +103,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-tourdates/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/1.4.38"
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/1.4.39"
             },
-            "time": "2018-07-11T11:12:15+00:00"
+            "time": "2018-07-15T13:11:03+00:00"
         },
         {
             "name": "gamajo/template-loader",
@@ -821,20 +821,20 @@
         },
         {
             "name": "dotherightthing/wpdtrt-exif",
-            "version": "0.1.11",
+            "version": "0.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-exif.git",
-                "reference": "561841b4b6fb9c532dd7894d15ea9db6b2f4e6a8"
+                "reference": "382450e188b9fcaae641dd324d6b753f2fa7a4ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/561841b4b6fb9c532dd7894d15ea9db6b2f4e6a8",
-                "reference": "561841b4b6fb9c532dd7894d15ea9db6b2f4e6a8",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-exif/zipball/382450e188b9fcaae641dd324d6b753f2fa7a4ca",
+                "reference": "382450e188b9fcaae641dd324d6b753f2fa7a4ca",
                 "shasum": ""
             },
             "require": {
-                "dotherightthing/wpdtrt-plugin-boilerplate": "^1.4.38",
+                "dotherightthing/wpdtrt-plugin-boilerplate": "^1.4.39",
                 "prairiewest/phpconvertdmstodecimal": "dev-master"
             },
             "require-dev": {
@@ -864,9 +864,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-exif/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.11"
+                "source": "https://github.com/dotherightthing/wpdtrt-exif/tree/0.1.12"
             },
-            "time": "2018-07-12T08:53:34+00:00"
+            "time": "2018-07-15T13:57:39+00:00"
         },
         {
             "name": "erusev/parsedown",
