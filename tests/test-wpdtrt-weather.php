@@ -35,13 +35,13 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	/**
 	 * Create a test page and attach a test attachment, which contains GPS data
 	 *
-	 * @param string $filename The image file name (added to debug missing metadata, but not helping)
+	 * @param string $filename The image file name (added to debug missing metadata, but not helping).
 	 * @return object $post
 	 * @see https://pippinsplugins.com/unit-tests-for-wordpress-plugins-the-factory/
 	 * @see https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/factory/class-wp-unittest-factory-for-post.php
 	 * @see https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/factory/class-wp-unittest-factory-for-attachment.php
 	 */
-	function mock_post_with_featured_image( $filename ) {
+	public function mock_post_with_featured_image( $filename ) {
 		$file          = WPDTRT_WEATHER_PATH . 'tests/data/' . $filename;
 		$post_id       = $this->factory->post->create();
 		$post          = get_post( $post_id );
@@ -56,7 +56,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	 * this is usually entered into the textfield
 	 * on the plugin settings page
 	 */
-	function mock_api_key() {
+	public function mock_api_key() {
 		global $wpdtrt_weather_plugin;
 
 		$plugin_options                             = $wpdtrt_weather_plugin->get_plugin_options();
@@ -71,9 +71,9 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	/**
 	 * Compare two HTML fragments.
 	 *
-	 * @param string $expected Expected value
-	 * @param string $actual Actual value
-	 * @param string $error_message Message to show when strings don't match
+	 * @param string $expected Expected value.
+	 * @param string $actual Actual value.
+	 * @param string $error_message Message to show when strings don't match.
 	 * @uses https://stackoverflow.com/a/26727310/6850747
 	 */
 	protected function assertEqualHtml( $expected, $actual, $error_message ) {
@@ -117,7 +117,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	/**
 	 * Create post
 	 *
-	 * @param array $options Post options (post_title, post_date, post_content)
+	 * @param array $options Post options (post_title, post_date, post_content).
 	 * @return number $post_id
 	 * @see https://developer.wordpress.org/reference/functions/wp_insert_post/
 	 * @see https://wordpress.stackexchange.com/questions/37163/proper-formatting-of-post-date-for-wp-insert-post
@@ -129,7 +129,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		$post_date    = null;
 		$post_content = null;
 
-		extract( $options, EXTR_IF_EXISTS );
+		extract( $options, EXTR_IF_EXISTS ); // phpcs:ignore
 
 		$post_id = $this->factory->post->create([
 			'post_title'   => $post_title,
@@ -154,18 +154,17 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	 * @todo add tests to wpdtrt-exif
 	 * @todo add tests for functions which parse the api data
 	 */
-	function __test_get_api_data() {
+	public function __test_get_api_data() {
 		global $debug, $wpdtrt_weather_plugin;
-		//global $post; // doesn't work to pass mock post from test_get_featured_image_latlng
-
+		// global $post; // doesn't work to pass mock post from test_get_featured_image_latlng.
 		$this->mock_api_key();
-		$post = $this->mock_post_with_featured_image( 'MDM_20151206_155919_20151206_1559_Outer_Mongolia.jpg' ); // post:5, attachment:6
+		$post = $this->mock_post_with_featured_image( 'MDM_20151206_155919_20151206_1559_Outer_Mongolia.jpg' ); // post:5, attachment:6.
 		$data = $wpdtrt_weather_plugin->get_api_data( $post );
 
-		// cast data object to an array
+		// cast data object to an array.
 		$data_arr = (array) $data;
 
-		// test that object is not empty
+		// test that object is not empty.
 		$this->assertTrue( ! empty( $data_arr ) );
 	}
 
@@ -173,15 +172,14 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	 * Test get_plugin_options()
 	 * Tests that retrieved plugin options match what was entered
 	 */
-	function test_get_plugin_options() {
+	public function test_get_plugin_options() {
 
 		// note that $debug logs are output with the test output in Terminal :)
-		//$this->setup(); // not required as the plugin has initialised already
+		// $this->setup(); // not required as the plugin has initialised already.
 		global $debug, $wpdtrt_weather_plugin;
 
 		$data = $wpdtrt_weather_plugin->get_plugin_options();
-		//$debug->log( $data );
-
+		// $debug->log( $data );
 		$this->assertTrue( is_array( $data ) );
 		$this->assertArrayHasKey( 'darksky_api_key', $data );
 		$this->assertTrue( is_array( $data['darksky_api_key'] ) );
@@ -190,7 +188,7 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 		$this->assertEquals( 'Darksky API key', $data['darksky_api_key']['label'] );
 		$this->assertEquals( 'https://darksky.net/dev/register', $data['darksky_api_key']['tip'] );
 		// value is not set until the user enters data into settings
-		// we stub a value in later tests
+		// we stub a value in later tests.
 		$this->assertTrue( ! isset( $data['darksky_api_key']['value'] ) );
 	}
 
@@ -198,14 +196,12 @@ class WPDTRT_WeatherTest extends WP_UnitTestCase {
 	 * Test get_featured_image_latlng()
 	 * Tests that latitude and longitude are returned
 	 */
-	function __test_get_featured_image_latlng() {
+	public function __test_get_featured_image_latlng() {
 		global $debug, $wpdtrt_weather_plugin;
-		//global $post; // doesn't work to pass mock post to test_get_api_data
-
-		$post = $this->mock_post_with_featured_image( '23465055912_ce8ff02e9f_o_Saihan_Tal.jpg' ); // post:3, attachment:4
+		// global $post; // doesn't work to pass mock post to test_get_api_data.
+		$post = $this->mock_post_with_featured_image( '23465055912_ce8ff02e9f_o_Saihan_Tal.jpg' ); // post:3, attachment:4.
 		$data = $wpdtrt_weather_plugin->get_featured_image_latlng( $post );
-		//$debug->log( $post->ID ); // 3
-
+		// $debug->log( $post->ID ); // 3.
 		$this->assertTrue( function_exists( 'wpdtrt_exif_get_attachment_metadata_gps' ) );
 		$this->assertTrue( is_array( $data ) );
 		$this->assertArrayHasKey( 'latitude', $data );

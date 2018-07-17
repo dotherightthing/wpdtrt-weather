@@ -1,5 +1,13 @@
 <?php
 /**
+ * DTRT Weather
+ *
+ * @package     WPDTRT_Weather
+ * @author      Dan Smith
+ * @copyright   2018 Do The Right Thing
+ * @license     GPL-2.0+
+ *
+ * @wordpress-plugin
  * Plugin Name:  DTRT Weather
  * Plugin URI:   https://github.com/dotherightthing/wpdtrt-weather
  * Description:  Displays historical weather information for the GPS location determined by the Featured Image.
@@ -100,11 +108,11 @@ require_once $project_root_path . 'vendor/autoload.php';
 if ( is_admin() ) {
 	// This replaces the TGMPA autoloader
 	// @see dotherightthing/generator-wpdtrt-plugin-boilerplate#77
-	// @see dotherightthing/wpdtrt-plugin-boilerplate#136
-	require_once( $project_root_path . 'vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php');
+	// @see dotherightthing/wpdtrt-plugin-boilerplate#136.
+	require_once( $project_root_path . 'vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php' );
 }
 
-// classes without composer.json files are loaded via Yarn
+// classes without composer.json files are loaded via Yarn.
 require_once WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php';
 require_once WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php';
 
@@ -116,7 +124,7 @@ require_once WPDTRT_WEATHER_PATH . 'src/class-wpdtrt-weather-widget.php';
 
 // log & trace helpers.
 global $debug;
-$debug = new DoTheRightThing\WPDebug\Debug;
+$debug = new DoTheRightThing\WPDebug\Debug();
 
 /**
  * ===== WordPress Integration =====
@@ -179,7 +187,7 @@ function wpdtrt_weather_helper_deactivate() {
  */
 function wpdtrt_weather_plugin_init() {
 	// pass object reference between classes via global
-	// because the object does not exist until the WordPress init action has fired
+	// because the object does not exist until the WordPress init action has fired.
 	global $wpdtrt_weather_plugin;
 
 	/**
