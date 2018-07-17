@@ -28,7 +28,7 @@ $options = get_query_var( 'options' );
 
 // Overwrite variables from array values
 // @link http://kb.network.dan/php/wordpress/extract/.
-extract( $options, EXTR_IF_EXISTS ); // phpcs:ignore
+extract( $options, EXTR_IF_EXISTS );
 
 // load the data.
 $plugin->get_api_data();
@@ -41,11 +41,10 @@ $summary = $plugin->get_api_day_summary();
 $unit    = $plugin->get_api_day_unit();
 
 // WordPress widget options (not output with shortcode).
-echo $before_widget; // phpcs:ignore
-echo $before_title . $title . $after_title; // phpcs:ignore
+echo $before_widget;
+echo $before_title . $title . $after_title;
 
 if ( isset( $min, $max ) ) :
-// phpcs:disable
 	?>
 
 <<?php echo $element; ?> title="<?php echo $summary; ?>" class="wpdtrt-weather">
@@ -62,8 +61,7 @@ if ( isset( $min, $max ) ) :
 </<?php echo $element; ?>>
 
 	<?php
-// phpcs:enable
 endif;
 
 // output widget customisations (not output with shortcode).
-echo $after_widget; // phpcs:ignore
+echo $after_widget;
