@@ -6,7 +6,7 @@ Tags: weather, forecast, GPS
 Requires at least: 4.9.5
 Tested up to: 4.9.5
 Requires PHP: 5.6.30
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
+
+= 0.2.1 =
+* Update wpdtrt-exif dependency
 
 = 0.2.0 =
 * Update wpdtrt-plugin-boilerplate to 1.5.0
