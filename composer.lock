@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d0c10f120becbbc06e03ce1180c3c5f",
+    "content-hash": "7c07cced0ce24e68fff9f6e6034ebbc9",
     "packages": [
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -160,6 +160,27 @@
                 "wordpress"
             ],
             "time": "2018-09-24T10:23:49+00:00"
+        },
+        {
+            "name": "joshuadavidnelson/wp-darksky",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joshuadavidnelson/wp-darksky.git",
+                "reference": "master"
+            },
+            "type": "library"
+        },
+        {
+            "name": "joshuadavidnelson/wp-darksky-weather-icon-forecast",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c.git",
+                "reference": "master"
+            },
+            "type": "library",
+            "time": "2017-01-05T05:17:27+00:00"
         },
         {
             "name": "tgmpa/tgm-plugin-activation",
@@ -2846,7 +2867,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "joshuadavidnelson/wp-darksky-weather-icon-forecast": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

@@ -17,7 +17,9 @@
         "issues": "https://github.com/dotherightthing/wpdtrt-weather/issues"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.3"
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.3",
+        "joshuadavidnelson/wp-darksky": "^1.1.1",
+        "joshuadavidnelson/wp-darksky-weather-icon-forecast": "dev-master"
     },
     "require-dev": {
         "wp-coding-standards/wpcs": "^0.14.1",
@@ -60,7 +62,31 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/prairiewest/PHPconvertDMSToDecimal"
+            "url": "https://github.com/prairiewest/phpconvertdmstodecimal"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "joshuadavidnelson/wp-darksky",
+                "version": "1.1.1",
+                "source": {
+                    "url": "https://github.com/joshuadavidnelson/wp-darksky.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "joshuadavidnelson/wp-darksky-weather-icon-forecast",
+                "version": "master",
+                "source": {
+                    "url": "https://gist.github.com/joshuadavidnelson/12e9915ad81d62a6991c.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ],
     "config": {

@@ -26,9 +26,7 @@
     "attachment"
   ],
   "dependencies": {
-    "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
-    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
-    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git"
+    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git"
   },
   "config": {
     "wpdtrt_base_url_local": "http://dontbelievethehype.dan",

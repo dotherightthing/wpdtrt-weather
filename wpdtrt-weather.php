@@ -113,8 +113,8 @@ if ( is_admin() ) {
 }
 
 // classes without composer.json files are loaded via Yarn.
-require_once WPDTRT_WEATHER_PATH . 'node_modules/wp-darksky/wp-darksky.php';
-require_once WPDTRT_WEATHER_PATH . 'node_modules/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php';
+require_once WPDTRT_WEATHER_PATH . 'vendor/joshuadavidnelson/wp-darksky/wp-darksky.php';
+require_once WPDTRT_WEATHER_PATH . 'vendor/joshuadavidnelson/wp-darksky-weather-icon-forecast/wp-darksky-weather-icon-forecast.php';
 
 // sub classes, not loaded via PSR-4.
 // remove the includes you don't need, edit the files you do need.
