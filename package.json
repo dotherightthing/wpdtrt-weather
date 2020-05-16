@@ -17,7 +17,7 @@
     }
   ],
   "bugs": {
-    "url" : "https://github.com/dotherightthing/wpdtrt-weather/issues"
+    "url": "https://github.com/dotherightthing/wpdtrt-weather/issues"
   },
   "keywords": [
     "exif",
@@ -29,30 +29,31 @@
     "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10",
     "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0"
   },
-  "devDependencies": {
-    "gulp": "^3.9.1"
-  },
   "workspaces": [
     "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
+  "config": {
+    "wpdtrt_base_url_local": "http://dontbelievethehype.dan",
+    "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
+  },
   "scripts": {
-    "build": "gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "install_deps": "gulp install_dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp wpunit_install --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "package": "gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "lint": "gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "test": "gulp wpunit_run --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "version": "gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
-    "watch": "gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./"
+    "compile": "npm run compile --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "scrape:wordpress_maintenance_page": "npm run scrape:wordpress_maintenance_page --prefix $npm_package_config_wpdtrt_npm_scripts -- $npm_package_config_wpdtrt_base_url_local",
+    "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dotherightthing/wpdtrt-weather"
   },
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 11"
-  ],
   "license": "ISC",
   "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
-  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather"
+  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather",
+  "devDependencies": {
+    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
+  }
 }

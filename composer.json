@@ -20,15 +20,15 @@
         "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.3"
     },
     "require-dev": {
-        "phpdocumentor/phpdocumentor": "2.9.0",
-        "phpunit/phpunit": "^5.7",
-        "psy/psysh" : "~0.6",
-        "wp-cli/wp-cli" : "~0.22",
         "wp-coding-standards/wpcs": "^0.14.1",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "phpunit/phpunit": "^7.5.14",
+        "psy/psysh" : "~0.6",
+        "wp-cli/wp-cli": "^2.3",
         "dotherightthing/wpdtrt-exif": "^0.2.2"
-    },
-    "extras": {
+      },
+
+    "extra": {
         "require-wp": [
             {
                 "name": "DTRT EXIF",
