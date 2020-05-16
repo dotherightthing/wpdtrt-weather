@@ -26,7 +26,8 @@
     "attachment"
   ],
   "dependencies": {
-    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git"
+    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
+    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
   },
   "config": {
     "wpdtrt_base_url_local": "http://dontbelievethehype.dan",
@@ -49,7 +50,5 @@
   "license": "ISC",
   "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather",
-  "devDependencies": {
-    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
-  }
+  "devDependencies": {}
 }
