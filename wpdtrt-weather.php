@@ -208,27 +208,7 @@ function wpdtrt_weather_plugin_init() {
 	 *
 	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-shortcode-or-widget-options Options: Adding shortcode or widget options
 	 */
-	$instance_options = array(
-		'element' => array(
-			'type'    => 'select',
-			'label'   => __( 'Element', 'wpdtrt-weather' ),
-			'options' => array(
-				'dd'   => array(
-					'text' => __( 'Definition list item (dd)', 'wpdtrt-weather' ),
-				),
-				'li'   => array(
-					'text' => __( 'List item (li)', 'wpdtrt-weather' ),
-				),
-				'p'    => array(
-					'text' => __( 'Paragraph (p)', 'wpdtrt-weather' ),
-				),
-				'span' => array(
-					'text' => __( 'Span (span)', 'wpdtrt-weather' ),
-				),
-			),
-			'tip'     => __( 'Wrapping HTML element', 'wpdtrt-weather' ),
-		),
-	);
+	$instance_options = array();
 
 	/**
 	 *  UI Messages
@@ -315,9 +295,7 @@ function wpdtrt_weather_shortcode_init() {
 			'name'                      => 'wpdtrt_weather_shortcode',
 			'plugin'                    => $wpdtrt_weather_plugin,
 			'template'                  => 'weather',
-			'selected_instance_options' => array(
-				'element',
-			),
+			'selected_instance_options' => array(),
 		)
 	);
 }
@@ -371,9 +349,7 @@ function wpdtrt_weather_widget_init() {
 			'description'               => __( 'Display historical weather information for the GPS location determined by the Featured Image.', 'wpdtrt-weather' ),
 			'plugin'                    => $wpdtrt_weather_plugin,
 			'template'                  => 'weather',
-			'selected_instance_options' => array(
-				'element',
-			),
+			'selected_instance_options' => array(),
 		)
 	);
 
