@@ -30,9 +30,6 @@
     "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
     "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0"
   },
-  "workspaces": [
-    "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
-  ],
   "config": {
     "wpdtrt_base_url_local": "http://dontbelievethehype.dan",
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
