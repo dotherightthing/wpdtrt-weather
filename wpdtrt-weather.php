@@ -238,8 +238,7 @@ function wpdtrt_weather_plugin_init() {
 	 */
 	$demo_shortcode_params = array(
 		'name'    => 'wpdtrt_weather_shortcode',
-		'element' => 'p',
-		'number'  => 2,
+		'element' => 'p'
 	);
 
 	/**
