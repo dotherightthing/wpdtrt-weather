@@ -8,6 +8,22 @@ Displays historical weather information for the GPS location determined by the F
 
 Please read [DTRT WordPress Plugin Boilerplate: Workflows](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows).
 
-## WordPress Installation and Usage
+## WordPress Installation
 
 Please read the [WordPress readme.txt](readme.txt).
+
+## WordPress Usage
+
+### Shortcode
+
+Within the editor:
+
+```txt
+[wpdtrt_weather_shortcode_1 element="dd"]
+```
+
+In a PHP template, as a template tag:
+
+```php
+<?php echo do_shortcode( '[wpdtrt_weather_shortcode_1 element="dd"]' ); ?>
+```

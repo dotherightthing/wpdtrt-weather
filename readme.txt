@@ -6,7 +6,7 @@ Tags: weather, forecast, GPS
 Requires at least: 4.9.5
 Tested up to: 4.9.5
 Requires PHP: 5.6.30
-Stable tag: 0.2.2
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,26 +24,7 @@ Displays historical weather information for the GPS location determined by the F
 
 == Frequently Asked Questions ==
 
-= How do I use the widget? =
-
-One or more widgets can be displayed within one or more sidebars:
-
-1. Locate the widget: Appearance > Widgets > *DTRT Weather Widget*
-2. Drag and drop the widget into one of your sidebars
-3. Add a *Title*
-4. Specify *Element*
-
-= How do I use the shortcode? =
-
-```
-<!-- within the editor -->
-[wpdtrt_weather_shortcode_1 element="dd"]
-
-// in a PHP template, as a template tag
-<?php echo do_shortcode( '[wpdtrt_weather_shortcode_1 element="dd"]' ); ?>
-```
-
-Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
+See [WordPress Usage](README.md#wordpress-usage).
 
 == Screenshots ==
 
@@ -51,6 +32,18 @@ Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
+
+= 0.3.0 =
+* Optimise breakpoints
+* Remove redundant number parameter from shortcode
+* Remove widget 'element' select as this plugin doesn't use widgets and no option is marked as the default
+* Load PHP dependencies via composer rather than NPM, to resolve 'npm ERR! premature close'
+* Fix/ignore linting errors
+* Remove version requirement from weather-icons package, as it wasn't installing
+* Replace Gulp build scripts with wpdtrt-npm-scripts
+* Fix casing of Composer dependency
+* Replace Travis with Github Actions
+* Update wpdtrt-plugin-boilerplate to 1.7.0
 
 = 0.2.2 =
 * Update wpdtrt-plugin-boilerplate to 1.5.3
