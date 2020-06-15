@@ -112,7 +112,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		// $data = json_decode( $data, true );
 		//
 		// Save the data and retrieval time.
-		$this->set_plugin_data( $data );
+		$this->set_plugin_data( array( $data ) ); // array expected.
 		$this->set_plugin_data_options( array(
 			'last_updated' => time(),
 		));
@@ -128,7 +128,8 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 * @version      1.0.0
 	 */
 	public function get_api_day() {
-		$plugin_data = $this->get_plugin_data();
+		$plugin_data = $this->get_plugin_data()[0];
+
 		$day         = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
 
 		return $day;
@@ -143,7 +144,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 */
 	public function get_api_day_icon() {
 		$day  = $this->get_api_day();
-		$data = $this->get_plugin_data();
+		$data = $this->get_plugin_data()[0];
 		$icon = null;
 
 		if ( $day ) {
