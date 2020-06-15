@@ -129,7 +129,6 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 */
 	public function get_api_day() {
 		$plugin_data = $this->get_plugin_data()[0];
-
 		$day         = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
 
 		return $day;
@@ -151,7 +150,7 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 			$icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
 
 			if ( isset( $icon_data ) ) {
-				// call DarkSky\Weather_Icon_Forecast methid get_icon().
+				// call DarkSky\Weather_Icon_Forecast method get_icon().
 				$icon = $data->get_icon( $icon_data );
 			}
 		}
