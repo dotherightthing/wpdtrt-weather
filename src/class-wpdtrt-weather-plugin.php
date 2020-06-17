@@ -83,14 +83,14 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 		if ( key_exists( 'value', $plugin_options['darksky_api_key'] ) ) {
 			$darksky_api_key = $plugin_options['darksky_api_key']['value'];
 		} else {
-			return $data;
+			return array( $data );
 		}
 
 		// https://github.com/dotherightthing/wpdtrt-weather/issues/7.
 		$featured_image_latlng = $this->get_featured_image_latlng( $_post );
 
 		if ( ! isset( $featured_image_latlng['latitude'] ) ) {
-			return $data;
+			return array( $data );
 		}
 
 		$args = array(
@@ -128,8 +128,13 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 * @version      1.0.0
 	 */
 	public function get_api_day() {
-		$plugin_data = $this->get_plugin_data()[0];
-		$day         = isset( $plugin_data->daily['data'] ) ? $plugin_data->daily['data'][0] : false;
+		$data = $this->get_plugin_data();
+		$day = false;
+
+		if ( !empty($data) ) {
+			$data = $data[0];
+			$day = isset( $data->daily['data'] ) ? $data->daily['data'][0] : false;
+		}
 
 		return $day;
 	}
@@ -143,15 +148,19 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 	 */
 	public function get_api_day_icon() {
 		$day  = $this->get_api_day();
-		$data = $this->get_plugin_data()[0];
+		$data = $this->get_plugin_data();
 		$icon = null;
 
-		if ( $day ) {
-			$icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
+		if ( !empty($data) ) {
+			$data = $data[0];
 
-			if ( isset( $icon_data ) ) {
-				// call DarkSky\Weather_Icon_Forecast method get_icon().
-				$icon = $data->get_icon( $icon_data );
+			if ( $day ) {
+				$icon_data = isset( $day['icon'] ) ? esc_attr( $day['icon'] ) : null;
+
+				if ( isset( $icon_data ) ) {
+					// call DarkSky\Weather_Icon_Forecast method get_icon().
+					$icon = $data->get_icon( $icon_data );
+				}
 			}
 		}
 
@@ -258,6 +267,9 @@ class WPDTRT_Weather_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_
 
 		$featured_image_id       = get_post_thumbnail_id( $post->ID );
 		$attachment_metadata     = wp_get_attachment_metadata( $featured_image_id, false ); // core meta.
+
+		// $debug->log($attachment_metadata['image_meta']); // empty array
+
 		$attachment_metadata_gps = $wpdtrt_exif_plugin->get_attachment_metadata_gps( $attachment_metadata, 'number', $post );
 
 		if ( ! isset( $attachment_metadata_gps['latitude'], $attachment_metadata_gps['longitude'] ) ) {
