@@ -27,3 +27,9 @@ In a PHP template, as a template tag:
 ```php
 <?php echo do_shortcode( '[wpdtrt_weather_shortcode_1 element="dd"]' ); ?>
 ```
+
+### Styling
+
+Core CSS properties may be overwritten by changing the variable values in your theme stylesheet.
+
+See `scss/_variables.scss`.
