@@ -6,7 +6,7 @@ Tags: weather, forecast, GPS
 Requires at least: 5.3.3
 Tested up to: 5.3.3
 Requires PHP: 7.2.15
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,13 @@ See [WordPress Usage](README.md#wordpress-usage).
 2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
+
+= 0.3.1 =
+* Docs
+* Return data as an array (but see dotherightthing/wpdtrt-dbth#42)
+* Fix typos
+* set_plugin_data expects an array
+* Update required WP and PHP versions
 
 = 0.3.0 =
 * Optimise breakpoints
