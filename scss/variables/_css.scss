@@ -1,0 +1,23 @@
+//
+// File: scss/variables/_css.scss
+//
+// Since:
+//   0.9.x - DTRT WordPress Plugin Boilerplate Generator
+//
+// Colours are specified in hsla values:
+// - Hue: 0 - 360 on a colour wheel (e.g. http://hslpicker.com/)
+// - Saturation: 0 (grayscale) - 100 (full colour)
+// - Lightness: 0% (black), 50% (average), 100% (completely light)
+// - Alpha
+//
+
+:root {
+    --wpdtrt-weather-bg-color: hsla(0, 0%, 0%, .025);
+    --wpdtrt-weather-border-color: hsla(0, 0%, 80%, 1);
+    --wpdtrt-weather-icon-bg-color: hsla(0, 0%, 20%, 1);
+    --wpdtrt-weather-icon-color: hsla(0, 0%, 98%, 1);
+    --wpdtrt-weather-icon-color--min: hsla(207, 90%, 54%, 1); // material.io blue
+    --wpdtrt-weather-icon-color--max: hsla(4, 90%, 58%, 1); // material.io red
+    --wpdtrt-weather-icon-divider-color: hsla(0, 0%, 100%, 1);
+    --wpdtrt-weather-text-color: hsla(0, 0%, 20%, 1);
+}
