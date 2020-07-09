@@ -17,7 +17,7 @@
         "issues": "https://github.com/dotherightthing/wpdtrt-weather/issues"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.3",
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.5",
         "joshuadavidnelson/wp-darksky": "^1.1.1",
         "joshuadavidnelson/wp-darksky-weather-icon-forecast": "dev-master"
     },
