@@ -1,5 +1,6 @@
-* [70f6507] Docs
-* [b1d7e24] Return data as an array (but see dotherightthing/wpdtrt-dbth#42)
-* [ebcc27e] Fix typos
-* [e0899c8] set_plugin_data expects an array
-* [7aa3b82] Update required WP and PHP versions
+* [e82e710] Update wpdtrt-plugin-boilerplate to 1.7.5 to fix CSS output order
+* [87ee096] Disable widget (dotherightthing/wpdtrt-plugin-boilerplate#183)
+* [325ce72] Update wpdtrt-plugin-boilerplate from 1.7.0 to 1.7.3 to fix import of CSS variables file
+* [2083ea8] Update wpdtrt-npm-scripts to fix release
+* [76b354b] Update wpdtrt-npm-scripts to fix release
+* [4293834] Use CSS variables, compile CSS variables to separate file
