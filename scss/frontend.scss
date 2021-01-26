@@ -6,15 +6,32 @@
 // @since       0.7.5
 //
 
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/variables';
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/extends';
+// -------------------------------------------------------------------
+// Variables
+// -------------------------------------------------------------------
+
+@import '../node_modules/wpdtrt-scss/scss/variables/scss';
 @import 'variables/scss';
+
+// -------------------------------------------------------------------
+// Mixins
+// -------------------------------------------------------------------
+
+@import '../node_modules/wpdtrt-scss/scss/mixins';
+
+// -------------------------------------------------------------------
+// Extends
+// -------------------------------------------------------------------
+
+@import '../node_modules/wpdtrt-scss/scss/extends';
 @import 'extends';
-@import 'node_modules/weather-icons/sass/weather-icons';
 
 // -------------------------------------------------------------------
 // Styles
 // -------------------------------------------------------------------
+
+@import 'node_modules/weather-icons/sass/weather-icons';
+@import '../node_modules/wpdtrt-scss/scss/_frontend';
 
 .wpdtrt-weather {
     display: inline-block;
@@ -26,7 +43,7 @@
     border-radius: 4px;
 
     &--summary {
-        @extend .wpdtrt-plugin-boilerplate-screen-reader-text;
+        @extend %wpdtrt-scss-hide-visually;
     }
 
     &--icon {
