@@ -6,7 +6,7 @@ Tags: weather, forecast, GPS
 Requires at least: 5.3.3
 Tested up to: 5.3.3
 Requires PHP: 7.2.15
-Stable tag: 0.3.3
+Stable tag: 0.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,12 @@ See [WordPress Usage](README.md#wordpress-usage).
 2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
+
+= 0.3.4 =
+* [6815c6f] Update wpdtrt-plugin-boilerplate from 1.7.7 to 1.7.12
+* [fdbd778] Add missing argument
+* [8c7d4db] Move styles to wpdtrt-scss
+* [e1d995c] Ignore files sources from wpdtrt-npm-scripts
 
 = 0.3.3 =
 * [7a7ad55] Update dependencies, incl wpdtrt-plugin-boilerplate from 1.7.6 to 1.7.7 to use Composer v1
