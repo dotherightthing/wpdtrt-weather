@@ -199,6 +199,7 @@ function wpdtrt_weather_plugin_init() {
 		'darksky_api_key' => array(
 			'type'  => 'password',
 			'label' => __( 'Darksky API key', 'wpdtrt-weather' ),
+			'size'  => 40,
 			'tip'   => __( 'https://darksky.net/dev/register', 'wpdtrt-weather' ),
 		),
 	);
@@ -238,6 +239,7 @@ function wpdtrt_weather_plugin_init() {
 	 */
 	$demo_shortcode_params = array(
 		'name'    => 'wpdtrt_weather_shortcode',
+		'number'  => 1,
 		'element' => 'p',
 	);
 
