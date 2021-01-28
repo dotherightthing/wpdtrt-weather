@@ -216,8 +216,8 @@ function wpdtrt_weather_plugin_init() {
 	 */
 	$ui_messages = array(
 		'demo_data_description'       => __( 'This demo was generated from the following data', 'wpdtrt-weather' ),
-		'demo_data_displayed_length'  => __( 'results displayed', 'wpdtrt-weather' ),
-		'demo_data_length'            => __( 'results', 'wpdtrt-weather' ),
+		'demo_data_displayed_length'  => __( '# results displayed', 'wpdtrt-weather' ),
+		'demo_data_length'            => __( '# results', 'wpdtrt-weather' ),
 		'demo_data_title'             => __( 'Demo data', 'wpdtrt-weather' ),
 		'demo_date_last_updated'      => __( 'Data last updated', 'wpdtrt-weather' ),
 		'demo_sample_title'           => __( 'Demo sample', 'wpdtrt-weather' ),
