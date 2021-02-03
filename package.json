@@ -50,6 +50,6 @@
   "homepage": "https://github.com/dotherightthing/wpdtrt-weather",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-weather",
   "devDependencies": {
-    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts#semver:0.3.*"
+    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts#semver:*"
   }
 }
