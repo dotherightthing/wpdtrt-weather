@@ -265,22 +265,6 @@ function wpdtrt_weather_plugin_init() {
 }
 
 /**
- * ===== Rewrite config =====
- */
-
-/**
- * Register Rewrite
- */
-function wpdtrt_weather_rewrite_init() {
-
-	global $wpdtrt_weather_plugin;
-
-	$wpdtrt_weather_rewrite = new WPDTRT_Weather_Rewrite(
-		array()
-	);
-}
-
-/**
  * ===== Shortcode config =====
  */
 
@@ -299,27 +283,6 @@ function wpdtrt_weather_shortcode_init() {
 			'selected_instance_options' => array(),
 		)
 	);
-}
-
-/**
- * ===== Taxonomy config =====
- */
-
-/**
- * Register Taxonomy
- *
- * @return object Taxonomy/
- */
-function wpdtrt_weather_taxonomy_init() {
-
-	global $wpdtrt_weather_plugin;
-
-	$wpdtrt_weather_taxonomy = new WPDTRT_Weather_Taxonomy(
-		array()
-	);
-
-	// return a reference for unit testing.
-	return $wpdtrt_weather_taxonomy;
 }
 
 /**
