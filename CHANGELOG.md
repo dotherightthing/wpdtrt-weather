@@ -1,2 +1,2 @@
-* [a4a0a9e] Update wpdtrt-plugin-boilerplate from 1.7.15 to 1.7.16
-* [be8e8af] Remove redundant classes
+* [a4f2853] Update dependencies, update wpdtrt-plugin-boilerplate from 1.7.16 to 1.7.17
+* [03c8132] Sync comment with plugin generator
