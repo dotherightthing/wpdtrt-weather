@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
-    "wpdtrt-scss": "github:dotherightthing/wpdtrt-scss#semver:*"
+    "wpdtrt-scss": "github:dotherightthing/wpdtrt-scss"
   },
   "config": {
     "wpdtrt_base_url_local": "http://dontbelievethehype.dan",
